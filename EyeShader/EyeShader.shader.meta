@@ -3,7 +3,7 @@ guid: 59388fddc7ab7974cbc35a82bbe295d3
 ShaderImporter:
   externalObjects: {}
   defaultTextures:
-  - _Emissive: {fileID: 2800000, guid: a0a1d596e870a8e43a7322c0e568730c, type: 3}
+  - _EmissiveMask: {fileID: 2800000, guid: a0a1d596e870a8e43a7322c0e568730c, type: 3}
   - _FlowMap: {fileID: 2800000, guid: 59cea2e54c710d447b163f9fff15adf8, type: 3}
   nonModifiableTextures: []
   userData: 
