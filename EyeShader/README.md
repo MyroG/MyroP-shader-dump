@@ -35,6 +35,7 @@ You can create your own flow map in your favourite image editing software, like 
 - Resize the flow map template to match the dimensions of your eye texture, ensuring it is slightly smaller than the eye texture itself.
 - Create a hole in the center of the flow map template for the pupil. Ensure the hole is slightly larger than the size of your pupils.
 - Adjust the background color of the eye texture to a 50% blend of red and green (#808000 in hexadecimal format). Ensure that the texture background is not transparent.
+- Blur a little bit the edges, applying a gausian blur effect should be good enough.
 - After importing your flow map texture into Unity, deselect the "sRGB" option in the import settings.
 
 Here's an example of a flow map I created for one of my avatars:
