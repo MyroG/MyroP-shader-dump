@@ -16,13 +16,10 @@ The 3 main features can be seen below
 
 ## Settings
 
-MainTex : The main eye texture, use whatever texture you want
-FlowMap : Your flow map, see the "Flow map" section to see how to generate your own flow map.
-AudioLink intensity : the intensity of the AudioLink effect, 0 disables that effect.
-Video Lerp : intensity of the video texture applied to the eyes. A value of 0 implies no video texture visible, while a value of 1 indicates the full visibility of the video texture.
-Video player settings, only works with ProTV 3.0 for now :
-- Emissive : Basically how the video texture should be shown on the eyes, it works like a mask, that's why the included "emissiveEye" has such a high contrast.
-- Video Intensity : How strong the emissive effect should be, make sure to set it to at least 1, otherwise the video screen effect won't be visible.
+- MainTex : The main eye texture, use whatever texture you want
+- FlowMap : Your flow map, see the "Flow map" section to see how to generate your own flow map.
+- AudioLink intensity : the intensity of the AudioLink effect, 0 disables that effect.
+- Video Lerp : intensity of the video texture applied to the eyes. A value of 0 implies no video texture visible, while a value of 1 indicates the full visibility of the video texture.
 
 Lastly, there are two settings to customize the flow speed and strength : Flow Speed and Flow strength.
 
