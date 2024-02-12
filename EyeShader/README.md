@@ -16,10 +16,13 @@ The 3 main features can be seen below
 
 ## Settings
 
-- MainTex : The main eye texture, use whatever texture you want
-- FlowMap : Your flow map, see the "Flow map" section to see how to generate your own flow map.
-- AudioLink intensity : the intensity of the AudioLink effect, 0 disables that effect.
-- Video Lerp : intensity of the video texture applied to the eyes. A value of 0 implies no video texture visible, while a value of 1 indicates the full visibility of the video texture.
+- MainTex : Your main eye texture, use whatever texture you want.
+- FlowMap : Your flow map, see the "Flow map" section to see how to create your own flow map.
+- AudioLink intensity : The intensity of the AudioLink effect, 0 disables that effect.
+- Video Lerp : intensity of the video texture applied to the eyes. A value of 0 implies no video texture visible, while a value of 1 indicates the full visibility of the video texture. If this feature is not supported by specific video players, setting the value to 1 will disable any effects.
+- Emissive Mask : determines how the effect should be shown on the eyes, personally I used a mask with very strong red, green and blue colors, something like this :
+
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/maskExample.png)
 
 Lastly, there are two settings to customize the flow speed and strength : Flow Speed and Flow strength.
 
@@ -40,7 +43,7 @@ Here's an example of a flow map I created for one of my avatars:
 
 ## Testing
 
-The video effect only works with ProTV 3.0, here are a few worlds you can check out to test that shader :
+The video effect only works with ProTV 3.0, here are a few worlds you can check out to test the shader on your avatar :
 - Stabby Cinema : https://vrchat.com/home/world/wrld_cc341f9d-9363-49c5-b7e6-262c1d0d8f45
 - LTCGI Avatar testing : https://vrchat.com/home/world/wrld_f25c3ba1-6c18-4e81-9617-6239e3dd11a1
 

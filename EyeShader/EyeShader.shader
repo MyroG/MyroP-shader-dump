@@ -274,8 +274,8 @@ Node;AmplifyShaderEditor.TexelSizeNode;202;-305.1174,1841.346;Inherit;False;-1;1
 Node;AmplifyShaderEditor.RangedFloatNode;194;-278.1606,1505.248;Inherit;False;Property;_AudioLinkIntensity;AudioLink Intensity;11;0;Create;True;0;0;0;False;0;False;1;1;0;3;0;1;FLOAT;0
 Node;AmplifyShaderEditor.Compare;203;79.88257,1612.346;Inherit;False;2;4;0;FLOAT;0;False;1;FLOAT;16;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;199;30.01636,1785.646;Inherit;False;Property;_VideoIntensity;Video Intensity;13;0;Create;True;0;0;0;False;0;False;1;1;1;7;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;100;-259.9191,130.5153;Inherit;False;Property;_Smoothness;Smoothness;2;0;Create;True;0;0;0;False;0;False;1;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FunctionNode;192;-245.2664,1395.597;Inherit;False;M_GetRainbowTrack;-1;;119;a14bfb64767603a449f9acd9d7712fd0;0;2;34;FLOAT2;1,0;False;16;FLOAT;1;False;1;COLOR;0
+Node;AmplifyShaderEditor.RangedFloatNode;100;-259.9191,130.5153;Inherit;False;Property;_Smoothness;Smoothness;2;0;Create;True;0;0;0;False;0;False;1;1;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;184;41.00549,1863.617;Inherit;False;Property;_VideoLerp;Video Lerp;12;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;193;101.5394,1447.348;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;198;274.6164,1607.545;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
@@ -333,4 +333,4 @@ WireConnection;0;2;110;0
 WireConnection;0;3;204;0
 WireConnection;0;4;100;0
 ASEEND*/
-//CHKSM=0ACD6213EE04A9C96A7688085DC4EDB5E703ADC6
+//CHKSM=A76A70C9A72D58DF378C649DF4103D956FF86A1B
