@@ -14,10 +14,10 @@ The video effect only works with ProTV 3.0, here are a few worlds you can check 
 - Stabby Cinema : https://vrchat.com/home/world/wrld_cc341f9d-9363-49c5-b7e6-262c1d0d8f45
 - LTCGI Avatar testing : https://vrchat.com/home/world/wrld_f25c3ba1-6c18-4e81-9617-6239e3dd11a1
 
-This shader is still work in progress, there are a few important features I still need to implement, but I don't have so much time working on shaders right now, so I decided to release it a bit earlier, feel free to edit the shader with the Amplify shader editor. Here are the features that still needs to be implemented :
+This shader is still work in progress, there are a few important features I still need to implement, but I don't have so much time working on shaders right now, so I decided to release it a bit earlier, feel free to edit the shader with the Amplify shader editor. Here are the features I wanted to implement later :
 - Adding an option to switch between "opaque" and "transparent"
 - Adding a cull mode setting, to switch between "front", "back" or "off", currently the cull mode is set to "Off", which means that the material is shown on both sides of the mesh (inside and outside).
-- Adding an option to toggle LTCGI, AudioLink, Rim lights etc.
+- Adding an option to toggle LTCGI, AudioLink, Rim lights etc. Currently everything is on
 
 ## Installation 
 
