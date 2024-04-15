@@ -8,7 +8,6 @@ This is a shader I use for one of my avatar, here are the key features :
 
 ![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/AudioLinkPattern/Doc/wing3.gif)
 
-
 This shader is still work in progress, there are a few important features I still need to implement, but I don't have so much time working on shaders right now, so I decided to release it a bit earlier, feel free to edit the shader with the Amplify shader editor. Here are the features that still needs to be implemented :
 - Adding an option to switch between "opaque" and "transparent"
 - Adding a cull mode setting, to switch between "front", "back" or "off", currently the cull mode is set to "Off", which means that the material is shown on both sides of the mesh (inside and outside).
