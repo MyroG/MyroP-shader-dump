@@ -33,6 +33,10 @@ I'll explain each parameter below :
 
 ![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/AudioLinkPattern/Doc/Mask.png)
 
+Both masks are multiplied, so you can create more fancy patterns like this one :
+
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/AudioLinkPattern/Doc/pattern.png)
+
 ### Tiling Mask1 and Mask2
 
 This allows you to increase or decrease the size of the pattern
