@@ -67,6 +67,6 @@ It works the best if the green channel is a smooth gradient, like the mask inclu
 
 Those parameters affect the video screen, this feature only works in worlds that support that feature:
 - Animation speed : Animates the video player texture by rotating it.
-- Lerp : 0 disables that feature, 1 enables it.
+- Lerp : 0 disables that feature, 1 enables it. If that feature is enabled, but there's no compatible video player in the world, then the resulting output is just a white texture.
 
 
