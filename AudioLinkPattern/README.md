@@ -46,7 +46,11 @@ You can make the material more or less transparent with that setting
 
 ### Trippyness
 
-This effect only works when there's AudioLink or a compatible video player, so it only affects the green channel.
+This setting adds some kind of "wave" effect
+
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/AudioLinkPattern/Doc/trippyness.png)
+
+It only works when there's AudioLink or a compatible video player, so it only affects the green channel.
 It works the best if the green channel is a smooth gradient, like the mask included in the example folder.
 
 ### "Video screen" parameters
