@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GridOpaque
+  m_Shader: {fileID: 4800000, guid: 182cd432868fcbb4fad6b34eac35a7fc, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AudioLinkTest:
+        m_Texture: {fileID: 2800000, guid: 9a59f756742897243ac6b8ec65de6326, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AudioTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveTexture:
+        m_Texture: {fileID: 2800000, guid: 8c5cc0462bac3bc46b7b9d020e1a08e5, type: 3}
+        m_Scale: {x: 11.03, y: 11.03}
+        m_Offset: {x: 0, y: 0}
+    - _LCD:
+        m_Texture: {fileID: 2800000, guid: 315db4ad6ec2f844690ad4fcc041a7cb, type: 3}
+        m_Scale: {x: 700, y: 700}
+        m_Offset: {x: 0, y: 0}
+    - _MainMask:
+        m_Texture: {fileID: 2800000, guid: 22cff25f0026c6c4491db57e47153802, type: 3}
+        m_Scale: {x: 10.01, y: 9.923}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: b4762099666febf49aad9874da555b2d, type: 3}
+        m_Scale: {x: 11.03, y: 11.03}
+        m_Offset: {x: 0, y: 0}
+    - _Mask1:
+        m_Texture: {fileID: 2800000, guid: 22cff25f0026c6c4491db57e47153802, type: 3}
+        m_Scale: {x: 0, y: 0}
+        m_Offset: {x: 0, y: 0}
+    - _Mask2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 0, y: 0}
+        m_Offset: {x: 0, y: 0}
+    - _MaskInside:
+        m_Texture: {fileID: 2800000, guid: 22cff25f0026c6c4491db57e47153802, type: 3}
+        m_Scale: {x: 11.03, y: 11.03}
+        m_Offset: {x: 0, y: 0}
+    - _MaskOutside:
+        m_Texture: {fileID: 2800000, guid: ba199f114fe44dd4d915e0e53d91c0f7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VideoScreen_Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ASEOutlineWidth: 0.00001
+    - _AudioLinkEmissiveboost: 1
+    - _AudioLinkTrippyness: 1
+    - _AudioLinkTrippyness1: 71.9
+    - _BrightnessNoAudioLink: 2
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EmissionIntensity: 2
+    - _EmissionIntensityAudioLink: 2
+    - _EmissionIntensityNoAudio: 0.41
+    - _Emissiveboost: 1.96
+    - _Float2: 0
+    - _Float3: 1.64
+    - _Float4: 7.52
+    - _Frequencymultiplicator: 5
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _History: 32
+    - _HueNoAudioLink: 0.487
+    - _Metallic: 1
+    - _Mode: 0
+    - _NoAudioLinkBrightness: 1
+    - _NoAudioLinkEmissionboost: 1
+    - _NoAudioLinkEmissiveboost: 1
+    - _NoAudioLinkHUE: 0.498
+    - _NoAudioLinkSaturation: 0.49
+    - _OcclusionStrength: 1
+    - _Opacity: 0.5
+    - _Parallax: 0.02
+    - _RimIntensity: 7.08
+    - _SaturationNoAudioLink: 0.5
+    - _SmoothHistory: 1
+    - _Smoothness: 0.8
+    - _SmoothnessCenter: 1
+    - _SmoothnessEdge: 0.8
+    - _SmoothnessRedChannel0: 0.8
+    - _SmoothnessRedChannel1: 0.8
+    - _SmoothnessRedChannel2: 1
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Trippyness: 1
+    - _Trippyness2: 1
+    - _UVSec: 0
+    - _VideoPlayerEmissiveboost: 5.71
+    - _VideoPlayerTrippyness: 1
+    - _VideoScreenEmissiveboost: 1
+    - _VideoScreenTrippyness: 1
+    - _VideoScreen_AngleRad: 0
+    - _VideoScreen_AnimationSpeed: 0
+    - _VideoScreen_Lerp: 0
+    - _VideoScreen_PanX: 0
+    - _VideoScreen_PanY: 0
+    - _VideoscreenAngleRad: 0
+    - _VideoscreenAnimationspeed: 0
+    - _VideoscreenAudioLinkVideoblending: 0
+    - _VideoscreenEmissiveboost: 1
+    - _VideoscreenLerp: 0
+    - _VideoscreenTrippyness: 1
+    - _Waveinsidegrid: 18
+    - _ZWrite: 1
+    - __dirty: 0
+    m_Colors:
+    - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Band0Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Band1Color: {r: 1, g: 0.8683747, b: 0, a: 1}
+    - _Band2Color: {r: 0, g: 0.10661457, b: 1, a: 1}
+    - _Band3Color: {r: 0, g: 1, b: 0.054832913, a: 1}
+    - _BandColor0: {r: 1, g: 0, b: 0, a: 0}
+    - _BandColor1: {r: 1, g: 1, b: 0, a: 0}
+    - _BandColor2: {r: 0, g: 1, b: 0, a: 0}
+    - _BandColor3: {r: 1, g: 1, b: 0, a: 0}
+    - _BandColor4: {r: 0.7, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 0, g: 2.9960785, b: 1.8924408, a: 0}
+    - _MainColor: {r: 0.7075471, g: 0.7075471, b: 0.7075471, a: 0}
+    - _MaincolorRedchannel1: {r: 0.57547164, g: 0.57547164, b: 0.57547164, a: 0}
+    - _MaincolorRedchannel2: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 0}
+    - _NoAudioLinkEmissiveColor: {r: 1, g: 1, b: 1, a: 0}
+    - _PannerMask1: {r: 0, g: 0, b: 0, a: 0}
+    - _PannerMask2: {r: 0, g: 0, b: 0, a: 0}
+    - _RGBscreeneffecttyling: {r: 5, g: 5, b: 0, a: 0}
+    - _TilingMask1: {r: 9.923, g: 9.923, b: 0, a: 0}
+    - _TilingMask2: {r: 1, g: 1, b: 0, a: 0}
+    - _VideoScreen_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _VideoScreen_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Wingcolor: {r: 0.7075471, g: 0.7075471, b: 0.7075471, a: 0}
+  m_BuildTextureStacks: []
