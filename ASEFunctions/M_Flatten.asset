@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: M_Flatten
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.3.2\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19302\nNode;AmplifyShaderEditor.PosVertexDataNode;3;-749.472,-189.637;Inherit;False;1;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.RangedFloatNode;5;-794.5,208;Inherit;False;Global;_VRChatMirrorMode;_VRChatMirrorMode;2;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.Vector3Node;6;-825.5,291;Inherit;False;Global;_VRChatMirrorCameraPos;_VRChatMirrorCameraPos;2;0;Create;True;0;0;0;False;0;False;0,0,0;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionInput;7;-959.8221,-7.410919;Inherit;False;Thickness;1;0;False;1;0;FLOAT;0.1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;9;-962.8221,89.58908;Inherit;False;Largeness;1;1;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;4;-351.2037,-5.032959;Inherit;False;//
+    Convert vertex to world space$float4 vertexWS = mul(unity_ObjectToWorld, localVertex)@$$//
+    Get mesh origin in world space$float4 meshOriginWS = mul(unity_ObjectToWorld,
+    float4(0, 0, 0, 1))@$$// Get camera position in world space$#if defined(USING_STEREO_MATRICES)$\tfloat3
+    cameraPositionWS = ( unity_StereoWorldSpaceCameraPos[0] + unity_StereoWorldSpaceCameraPos[1]
+    ) / 2@$#else$\tfloat3 cameraPositionWS = VRChatMirrorMode != 0 ? VRChatMirrorCameraPos
+    : _WorldSpaceCameraPos.xyz@$#endif$$// Now we'll snap the vertex on a flat vertical
+    plane, we will work in a 2D space$float2 vertex2DSpace = float2(vertexWS.x, vertexWS.z)@$float2
+    cameraPos2DSpace = float2(cameraPositionWS.x, cameraPositionWS.z)@$float2 meshOrigin2DSpace
+    = float2(meshOriginWS.x, meshOriginWS.z)@$$// Calculate the direction of the
+    perpendicular plane (in 2D)$float2 cameraToOrigin = cameraPos2DSpace - meshOrigin2DSpace@$float2
+    perpendicular2DPlaneDirection = float2(cameraToOrigin.y, -cameraToOrigin.x)@
+    $perpendicular2DPlaneDirection = normalize(perpendicular2DPlaneDirection) * largeness@$$//
+    Calculate dot product between vertex and the perpendicular plane direction$float2
+    vertexOffsetFromOrigin = vertex2DSpace - meshOrigin2DSpace@$float dotProduct
+    = dot(perpendicular2DPlaneDirection, vertexOffsetFromOrigin)@$$// Project the
+    vertex onto the plane by using the perpendicular direction$float2 projectedVertex
+    = meshOrigin2DSpace + perpendicular2DPlaneDirection * dotProduct@$$// Adjust
+    the position based on thickness$float2 finalPosition = lerp(projectedVertex,
+    vertex2DSpace, thickness)@$$// Update the original vertex's x and z values$vertexWS.x
+    = finalPosition.x@$vertexWS.z = finalPosition.y@$$// Convert the vertex back
+    to local space$float4 localPos = mul(unity_WorldToObject, vertexWS)@$$return
+    localPos@;4;Create;5;False;localVertex;FLOAT4;0,0,0,0;In;;Inherit;False;False;thickness;FLOAT;0;In;;Inherit;False;True;largeness;FLOAT;1;In;;Inherit;False;False;VRChatMirrorMode;FLOAT;0;In;;Inherit;False;True;VRChatMirrorCameraPos;FLOAT3;0,0,0;In;;Inherit;False;My
+    Custom Expression;True;False;0;;False;5;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;FLOAT3;0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.FunctionOutput;0;-1,-3;Inherit;False;True;-1;New
+    local vertex position;0;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nWireConnection;4;0;3;0\nWireConnection;4;1;7;0\nWireConnection;4;2;9;0\nWireConnection;4;3;5;0\nWireConnection;4;4;6;0\nWireConnection;0;0;4;0\nASEEND*/\n//CHKSM=2031A088D39A916C67EB91CE8C646AD3FD80206E"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 1
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_headerStyle: 0
+  m_headerColor: {r: 1, g: 0.4, b: 0, a: 1}
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 
