@@ -11,7 +11,7 @@ It should be enough to download the "Standard 2DEffect.shader" file.
 In the first part, the avatar is 3D.
 After modifying the "thickness" property, we can see that the avatar turns 2D.
 
-[![Watch the video]()](https://github.com/MyroG/MyroP-shader-dump/raw/refs/heads/master/2DEffect/Doc/demo.mp4)
+[![Watch the video](https://github.com/MyroG/MyroP-shader-dump/blob/master/2DEffect/Doc/Settings.png)](https://github.com/MyroG/MyroP-shader-dump/raw/refs/heads/master/2DEffect/Doc/demo.mp4)
 
 ## Documentation
 
