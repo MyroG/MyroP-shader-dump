@@ -9,7 +9,7 @@ It should be enough to download the "Standard 2DEffect.shader" or the  the "Stan
 ## Demo      
 
 In the first part, the avatar is 3D.
-After modifying the "thickness" property, the avatar becomes 2D.
+After adjusting the 'thickness' property, the avatar transitions to a 2D appearance.
 
 https://github.com/user-attachments/assets/8f2beb25-2703-4837-be54-da3e46424c67
 
