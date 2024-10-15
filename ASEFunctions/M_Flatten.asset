@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: M_Flatten
   m_EditorClassIdentifier: 
   m_functionInfo: "// Made with Amplify Shader Editor v1.9.3.2\n// Available at the
-    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19302\nNode;AmplifyShaderEditor.PosVertexDataNode;3;-749.472,-189.637;Inherit;False;1;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.RangedFloatNode;5;-794.5,208;Inherit;False;Global;_VRChatMirrorMode;_VRChatMirrorMode;2;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.Vector3Node;6;-825.5,291;Inherit;False;Global;_VRChatMirrorCameraPos;_VRChatMirrorCameraPos;2;0;Create;True;0;0;0;False;0;False;0,0,0;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionInput;7;-959.8221,-7.410919;Inherit;False;Thickness;1;0;False;1;0;FLOAT;0.1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;9;-962.8221,89.58908;Inherit;False;Largeness;1;1;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;4;-516.2037,18.96704;Inherit;False;//
-    Convert vertex to world space$float4 vertexWS = mul(unity_ObjectToWorld, localVertex)@$$//
-    Get mesh origin in world space$float4 meshOriginWS = mul(unity_ObjectToWorld,
-    float4(0, 0, 0, 1))@$$// Get camera position in world space$#if defined(USING_STEREO_MATRICES)$\tfloat3
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19302\nNode;AmplifyShaderEditor.PosVertexDataNode;3;-822.472,-180.637;Inherit;False;1;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FunctionInput;7;-795.8221,11.58908;Inherit;False;Thickness;1;0;False;1;0;FLOAT;0.1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;9;-802.8221,97.58908;Inherit;False;Largeness;1;1;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;5;-842.5,196;Inherit;False;Global;_VRChatMirrorMode;_VRChatMirrorMode;2;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.Vector3Node;6;-868.5,284;Inherit;False;Global;_VRChatMirrorCameraPos;_VRChatMirrorCameraPos;2;0;Create;True;0;0;0;False;0;False;0,0,0;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.CustomExpressionNode;4;-538.2037,4.967041;Inherit;False;if
+    (thickness == 1.0f && largeness == 1.0f)$\treturn localVertex@$$// Convert vertex
+    to world space$float4 vertexWS = mul(unity_ObjectToWorld, localVertex)@$$// Get
+    mesh origin in world space$float4 meshOriginWS = mul(unity_ObjectToWorld, float4(0,
+    0, 0, 1))@$$// Get camera position in world space$#if defined(USING_STEREO_MATRICES)$\tfloat3
     cameraPositionWS = ( unity_StereoWorldSpaceCameraPos[0] + unity_StereoWorldSpaceCameraPos[1]
     ) / 2@$#else$\tfloat3 cameraPositionWS = VRChatMirrorMode != 0 ? VRChatMirrorCameraPos
     : _WorldSpaceCameraPos.xyz@$#endif$$// Now we'll snap the vertex on a flat vertical
@@ -25,19 +26,18 @@ MonoBehaviour:
     = float2(meshOriginWS.x, meshOriginWS.z)@$$// Calculate the direction of the
     perpendicular plane (in 2D)$float2 cameraToOrigin = cameraPos2DSpace - meshOrigin2DSpace@$float2
     perpendicular2DPlaneDirection = float2(cameraToOrigin.y, -cameraToOrigin.x)@
-    $perpendicular2DPlaneDirection = normalize(perpendicular2DPlaneDirection) * largeness@$$//
+    $perpendicular2DPlaneDirection = normalize(perpendicular2DPlaneDirection)@$$//
     Calculate dot product between vertex and the perpendicular plane direction$float2
     vertexOffsetFromOrigin = vertex2DSpace - meshOrigin2DSpace@$float dotProduct
     = dot(perpendicular2DPlaneDirection, vertexOffsetFromOrigin)@$$// Project the
     vertex onto the plane by using the perpendicular direction$float2 projectedVertex
     = meshOrigin2DSpace + perpendicular2DPlaneDirection * dotProduct@$$// Adjust
     the position based on thickness$float2 finalPosition = lerp(projectedVertex,
-    vertex2DSpace, thickness)@$$// Update the original vertex's x and z values$vertexWS.x
-    = finalPosition.x@$vertexWS.z = finalPosition.y@$$// Convert the vertex back
-    to local space$float4 localPos = mul(unity_WorldToObject, vertexWS)@$$return
-    localPos@;4;Create;5;False;localVertex;FLOAT4;0,0,0,0;In;;Inherit;False;False;thickness;FLOAT;0;In;;Inherit;False;True;largeness;FLOAT;1;In;;Inherit;False;False;VRChatMirrorMode;FLOAT;0;In;;Inherit;False;True;VRChatMirrorCameraPos;FLOAT3;0,0,0;In;;Inherit;False;My
-    Custom Expression;True;False;0;;False;5;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;FLOAT3;0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.ConditionalIfNode;10;-186.6169,-74.56009;Inherit;False;False;5;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT4;0,0,0,0;False;3;FLOAT4;0,0,0,0;False;4;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.FunctionOutput;0;51,-1;Inherit;False;True;-1;New
-    local vertex position;0;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nWireConnection;4;0;3;0\nWireConnection;4;1;7;0\nWireConnection;4;2;9;0\nWireConnection;4;3;5;0\nWireConnection;4;4;6;0\nWireConnection;10;0;7;0\nWireConnection;10;2;4;0\nWireConnection;10;3;3;0\nWireConnection;10;4;4;0\nWireConnection;0;0;10;0\nASEEND*/\n//CHKSM=3CCDA887CB63FA476D4AAB4232200B2E2D433570"
+    vertex2DSpace, thickness) + perpendicular2DPlaneDirection * dotProduct * (largeness
+    - 1)@$$// Update the original vertex's x and z values$vertexWS.x = finalPosition.x@$vertexWS.z
+    = finalPosition.y@$$// Convert the vertex back to local space$float4 localPos
+    = mul(unity_WorldToObject, vertexWS)@$$return localPos@;4;Create;5;False;localVertex;FLOAT4;0,0,0,0;In;;Inherit;False;False;thickness;FLOAT;0;In;;Inherit;False;True;largeness;FLOAT;1;In;;Inherit;False;False;VRChatMirrorMode;FLOAT;0;In;;Inherit;False;True;VRChatMirrorCameraPos;FLOAT3;0,0,0;In;;Inherit;False;Flatten;True;False;0;;False;5;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;FLOAT3;0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.FunctionOutput;0;-133,4;Inherit;False;True;-1;New
+    local vertex position;0;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nWireConnection;4;0;3;0\nWireConnection;4;1;7;0\nWireConnection;4;2;9;0\nWireConnection;4;3;5;0\nWireConnection;4;4;6;0\nWireConnection;0;0;4;0\nASEEND*/\n//CHKSM=AFA502D098BDD7FC4D8D6C089C1D92322122D6F7"
   m_functionName: 
   m_description: 
   m_additionalIncludes:

@@ -55,8 +55,10 @@ Shader "MyroP/Standard 2DEffect Transparent"
 		uniform float _Cutoff = 0.5;
 
 
-		float4 MyCustomExpression4_g4( float4 localVertex, float thickness, float largeness, float VRChatMirrorMode, float3 VRChatMirrorCameraPos )
+		float4 Flatten4_g4( float4 localVertex, float thickness, float largeness, float VRChatMirrorMode, float3 VRChatMirrorCameraPos )
 		{
+			if (thickness == 1.0f && largeness == 1.0f)
+				return localVertex;
 			// Convert vertex to world space
 			float4 vertexWS = mul(unity_ObjectToWorld, localVertex);
 			// Get mesh origin in world space
@@ -74,14 +76,14 @@ Shader "MyroP/Standard 2DEffect Transparent"
 			// Calculate the direction of the perpendicular plane (in 2D)
 			float2 cameraToOrigin = cameraPos2DSpace - meshOrigin2DSpace;
 			float2 perpendicular2DPlaneDirection = float2(cameraToOrigin.y, -cameraToOrigin.x); 
-			perpendicular2DPlaneDirection = normalize(perpendicular2DPlaneDirection) * largeness;
+			perpendicular2DPlaneDirection = normalize(perpendicular2DPlaneDirection);
 			// Calculate dot product between vertex and the perpendicular plane direction
 			float2 vertexOffsetFromOrigin = vertex2DSpace - meshOrigin2DSpace;
 			float dotProduct = dot(perpendicular2DPlaneDirection, vertexOffsetFromOrigin);
 			// Project the vertex onto the plane by using the perpendicular direction
 			float2 projectedVertex = meshOrigin2DSpace + perpendicular2DPlaneDirection * dotProduct;
 			// Adjust the position based on thickness
-			float2 finalPosition = lerp(projectedVertex, vertex2DSpace, thickness);
+			float2 finalPosition = lerp(projectedVertex, vertex2DSpace, thickness) + perpendicular2DPlaneDirection * dotProduct * (largeness - 1);
 			// Update the original vertex's x and z values
 			vertexWS.x = finalPosition.x;
 			vertexWS.z = finalPosition.y;
@@ -95,21 +97,15 @@ Shader "MyroP/Standard 2DEffect Transparent"
 		{
 			UNITY_INITIALIZE_OUTPUT( Input, o );
 			float3 ase_vertex3Pos = v.vertex.xyz;
-			float temp_output_7_0_g4 = _thickness;
 			float4 ase_vertex4Pos = v.vertex;
 			float4 localVertex4_g4 = ase_vertex4Pos;
-			float thickness4_g4 = temp_output_7_0_g4;
+			float thickness4_g4 = _thickness;
 			float largeness4_g4 = _largeness;
 			float VRChatMirrorMode4_g4 = _VRChatMirrorMode;
 			float3 VRChatMirrorCameraPos4_g4 = _VRChatMirrorCameraPos;
-			float4 localMyCustomExpression4_g4 = MyCustomExpression4_g4( localVertex4_g4 , thickness4_g4 , largeness4_g4 , VRChatMirrorMode4_g4 , VRChatMirrorCameraPos4_g4 );
-			float4 ifLocalVar10_g4 = 0;
-			if( temp_output_7_0_g4 == 1.0 )
-				ifLocalVar10_g4 = ase_vertex4Pos;
-			else
-				ifLocalVar10_g4 = localMyCustomExpression4_g4;
+			float4 localFlatten4_g4 = Flatten4_g4( localVertex4_g4 , thickness4_g4 , largeness4_g4 , VRChatMirrorMode4_g4 , VRChatMirrorCameraPos4_g4 );
 			#ifdef _VERTEXDISPLACEMENT_ON
-				float4 staticSwitch16 = ifLocalVar10_g4;
+				float4 staticSwitch16 = localFlatten4_g4;
 			#else
 				float4 staticSwitch16 = float4( ase_vertex3Pos , 0.0 );
 			#endif
@@ -185,4 +181,4 @@ WireConnection;0;5;8;2
 WireConnection;0;10;23;3
 WireConnection;0;11;16;0
 ASEEND*/
-//CHKSM=64913BFECEF9AF32C57A2AB165D657EA50192F89
+//CHKSM=EDF9E34F2B35462F54FBDCD51DB655682833349C
