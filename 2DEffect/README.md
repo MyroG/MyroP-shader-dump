@@ -4,12 +4,14 @@ A shader that can flatten your avatar, to make it nearly two dimensional. The ef
 
 ## Installation
 
-It should be enough to download the "Standard 2DEffect.shader" file.
+It should be enough to download the "Standard 2DEffect.shader" or the  the "Standard 2DEffect Transparent.shader" file.
 
-## Demo
+Important note : If your avatar uses multiple mesh renderers, then all mesh renderers need to share the same mesh origin.
+
+## Demo      
 
 In the first part, the avatar is 3D.
-After modifying the "thickness" property, we can see that the avatar turns 2D.
+After adjusting the 'thickness' property, the avatar transitions to a 2D appearance.
 
 https://github.com/user-attachments/assets/8f2beb25-2703-4837-be54-da3e46424c67
 
