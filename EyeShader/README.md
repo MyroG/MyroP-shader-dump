@@ -10,21 +10,46 @@ The 3 main features can be seen below
 
 ## Installation
 
-- Install LTCGI https://github.com/PiMaker/ltcgi
+- Install LTCGI https://github.com/PiMaker/ltcgi, this package was tested with LTCGI 1.4.1
 - Install AudioLink via the VCC package manager
 - It should be enough to download the `EyeShader.shader` file, but if you're planning to edit the shader later with the Amplify shader editor, you also need to download the `ASEFunctions` folder at the root of this repository.
 
 ## Settings
 
+### General settings
 - MainTex : Your main eye texture, use whatever texture you want.
+- Normal : Normal map
+- Specular, smoothness and emission
+
+### "Rave" settings
+Those settings will mostly work in AudioLinked worlds :
+- Rave mode : 0 will turn all "Rave"-related settings Off.
+- LTCGI : If you feel like you don't need it, you can turn it off. Turning if off improves a bit the performance.
+- Effect Mask : Determines how the effect should be shown on the eyes, personally I used a mask with very strong red, green and blue colors, something like this :
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/maskExample.png)
+
 - FlowMap : Your flow map, see the "Flow map" section to see how to create your own flow map.
 - AudioLink intensity : The intensity of the AudioLink effect, 0 disables that effect.
 - Video Lerp : intensity of the video texture applied to the eyes. A value of 0 implies no video texture visible, while a value of 1 indicates the full visibility of the video texture. If this feature is not supported by specific video players, setting the value to 1 will disable any effects.
-- Emissive Mask : determines how the effect should be shown on the eyes, personally I used a mask with very strong red, green and blue colors, something like this :
-
-![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/maskExample.png)
 
 Lastly, there are two settings to customize the flow speed and strength : Flow Speed and Flow strength.
+
+### "Retroreflection" settings
+If you take a picture of someone with flash, you'll noticed that their pupils show a red-ish color, this is called "Eyeshine", a few other terms are "Retroreflection" or "Tapetum lucidum". This effect also shows up on dogs or cats, but their pupils turn green.
+
+This shader also supports it! To test that feature, I would recommend placing a light source in your scene, and place it close to your avatar's eyes.
+Here are the settings :
+- The Retroreflection toggles turns in on or off
+- "Retroreflection Eye zones" : A mask containing informations how the retroreflection should be shown
+    - The red channel should cover the entire pupil
+    - The green and blue channels can be used to customize the shape/color of the retroreflection, that area should be bigger than the pupil
+This is how your mask should look like, but it also depends on how your avatar eyes are shaped:
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/MaskExample2.png)
+- "Retroreflection Color 1/2" : Color of the retroreflection, "Color 1" affects the green channel of the mask, "Color 2" affects the blue channel of the mask
+- "Retroreflection depth" : How deep the retroreflection should be shown in the eyes"
+- "Retroreflection size" : The size of the retroreflection, keep that value pretty low if you avatar has very small pupils.
+- "Retroreflection minimum light intensity" : Basically a light intensity threshold, if you only want the effect to be visible if a very bright light shines into your avatar's eyes, increase that value to something like 1 or more.
+
 
 ## Flow map
 
