@@ -43,8 +43,9 @@ Here are the settings :
 - The Retroreflection toggles turns in on or off
 - "Retroreflection Eye zones" : A mask containing informations how the retroreflection should be shown
     - The red channel should cover the entire pupil
-    - The green and blue channels can be used to customize the shape/color of the retroreflection, that area should be bigger than the pupil
-This is how your mask should look like, but it also depends on how your avatar eyes are shaped:
+    - The green and blue channels can be used to customize the shape/color of the retroreflection, that area should be bigger than the pupil.
+    
+Here's an example of a mask, the nask will depend on how your avatar eyes are shaped, the green/blue gradient is recommended so other players can more easily percieve depth, feel free to try different things:
 
 <img src="https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/MaskExample2.png" width=25% >
 

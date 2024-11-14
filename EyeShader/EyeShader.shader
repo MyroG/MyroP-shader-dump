@@ -20,8 +20,8 @@ Shader "MyroP/EyeShader"
 		_VideoscreenLerp("Video screen - Lerp", Range( 0 , 1)) = 0
 		[Toggle(_RETROREFLECTION_ON)] _Retroreflection("Retroreflection", Float) = 0
 		_RetroreflectionEyezones("Retroreflection Eye zones", 2D) = "white" {}
-		_Retroreflectioncolor1("Retroreflection color 1", Color) = (0,0,0,0)
-		_Retroreflectioncolor2("Retroreflection color 2", Color) = (0,0,0,0)
+		_Retroreflectioncolor1("Retroreflection color 1", Color) = (0,1,0.7837884,0)
+		_Retroreflectioncolor2("Retroreflection color 2", Color) = (0,1,0.6701975,0)
 		_Retroreflectiondepth("Retroreflection depth", Range( 0 , 1)) = 0
 		_Retroreflectionsize("Retroreflection size", Range( 0 , 10)) = 0
 		_Retroreflectionminimumlightintensity("Retroreflection minimum light intensity", Range( 0 , 5)) = 0
@@ -443,8 +443,6 @@ Node;AmplifyShaderEditor.GetLocalVarNode;343;-1432.642,-371.1664;Inherit;False;3
 Node;AmplifyShaderEditor.GetLocalVarNode;209;-1355.353,-614.1223;Inherit;False;207;paramAlbedo;1;0;OBJECT;;False;1;COLOR;0
 Node;AmplifyShaderEditor.GetLocalVarNode;330;-262.5388,-2150.779;Inherit;False;329;light direction;1;0;OBJECT;;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SamplerNode;320;-1304.425,-1147.17;Inherit;True;Property;_regionMask2;region Mask;0;0;Create;True;0;0;0;False;0;False;-1;dea87864c7ad02a4fa6c748cdd1b6247;bdf2fd130023a1443af8c801da212af8;True;0;False;black;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;325;-1239.65,-959.8121;Inherit;False;Property;_Retroreflectioncolor2;Retroreflection color 2;20;0;Create;True;0;0;0;False;0;False;0,0,0,0;0.5529411,0.9700156,1,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;230;-1239.718,-1317.336;Inherit;False;Property;_Retroreflectioncolor1;Retroreflection color 1;19;0;Create;True;0;0;0;False;0;False;0,0,0,0;0.2499996,1,0.6746323,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;360;-259.1566,-2046.884;Inherit;False;Property;_Retroreflectionsize;Retroreflection size;22;0;Create;True;0;0;0;False;0;False;0;0.42;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FunctionNode;206;-1667.63,407.2955;Inherit;False;M_GetRainbowTrack;-1;;132;a14bfb64767603a449f9acd9d7712fd0;0;2;34;FLOAT2;1,0;False;16;FLOAT;1;False;1;COLOR;0
 Node;AmplifyShaderEditor.Compare;203;-1342.483,624.0446;Inherit;False;2;4;0;FLOAT;0;False;1;FLOAT;16;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
@@ -452,6 +450,8 @@ Node;AmplifyShaderEditor.TextureCoordinatesNode;154;-1477.03,171.4677;Inherit;Fa
 Node;AmplifyShaderEditor.SamplerNode;155;-1820.097,-113.1244;Inherit;True;Property;_FlowMap;FlowMap;11;0;Create;True;0;0;0;False;0;False;-1;59cea2e54c710d447b163f9fff15adf8;ca8d6a95b37f62a4db3559f71ae00a27;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TexturePropertyNode;162;-1472.399,-53.34839;Inherit;True;Property;_EffectMask;Effect Mask;8;0;Create;True;0;0;0;False;0;False;a0a1d596e870a8e43a7322c0e568730c;81658265a1a34024780dfa921a038bac;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.RangedFloatNode;184;-1239.133,788.0833;Inherit;False;Property;_VideoscreenLerp;Video screen - Lerp;16;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;230;-1239.718,-1317.336;Inherit;False;Property;_Retroreflectioncolor1;Retroreflection color 1;19;0;Create;True;0;0;0;False;0;False;0,1,0.7837884,0;0.2499996,1,0.6746323,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;325;-1239.65,-959.8121;Inherit;False;Property;_Retroreflectioncolor2;Retroreflection color 2;20;0;Create;True;0;0;0;False;0;False;0,1,0.6701975,0;0.5529411,0.9700156,1,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.CommentaryNode;369;136.3041,-1848.832;Inherit;False;689.1002;588.229;Just to make sure the effect doesn't show up in shadows;3;363;364;228;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;113;-1083.082,-490.0925;Inherit;False;3;3;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;109;-1104.073,-614.723;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT3;0,0,0;False;1;COLOR;0
@@ -599,4 +599,4 @@ WireConnection;318;0;304;0
 WireConnection;318;1;233;0
 WireConnection;0;13;318;0
 ASEEND*/
-//CHKSM=07A4179D676D867B5C1A3254270EEB96145C56AD
+//CHKSM=C8B7D96014A9A560171C8B5749F2E028A58B1BE9
