@@ -46,7 +46,7 @@ Here are the settings :
     - The green and blue channels can be used to customize the shape/color of the retroreflection, that area should be bigger than the pupil
 This is how your mask should look like, but it also depends on how your avatar eyes are shaped:
 
-![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/MaskExample2.png)
+<img src="https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/MaskExample2.png" width=25% >
 
 - "Retroreflection Color 1/2" : Color of the retroreflection, "Color 1" affects the green channel of the mask, "Color 2" affects the blue channel of the mask
 - "Retroreflection depth" : How deep the retroreflection should be shown in the eyes"
