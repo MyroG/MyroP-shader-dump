@@ -26,6 +26,7 @@ Those settings will mostly work in AudioLinked worlds :
 - Rave mode : 0 will turn all "Rave"-related settings Off.
 - LTCGI : If you feel like you don't need it, you can turn it off. Turning if off improves a bit the performance.
 - Effect Mask : Determines how the effect should be shown on the eyes, personally I used a mask with very strong red, green and blue colors, something like this :
+
 ![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/maskExample.png)
 
 - FlowMap : Your flow map, see the "Flow map" section to see how to create your own flow map.
@@ -44,6 +45,7 @@ Here are the settings :
     - The red channel should cover the entire pupil
     - The green and blue channels can be used to customize the shape/color of the retroreflection, that area should be bigger than the pupil
 This is how your mask should look like, but it also depends on how your avatar eyes are shaped:
+
 ![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/MaskExample2.png)
 - "Retroreflection Color 1/2" : Color of the retroreflection, "Color 1" affects the green channel of the mask, "Color 2" affects the blue channel of the mask
 - "Retroreflection depth" : How deep the retroreflection should be shown in the eyes"
