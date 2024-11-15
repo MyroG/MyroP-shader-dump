@@ -36,16 +36,16 @@ Those settings will mostly work in AudioLinked worlds :
 Lastly, there are two settings to customize the flow speed and strength : Flow Speed and Flow strength.
 
 ### "Retroreflection" settings
-If you take a picture of someone with flash, you'll noticed that their pupils show a red-ish color, this is called "Eyeshine", a few other terms are "Retroreflection" or "Tapetum lucidum". This effect also shows up on dogs or cats, but their pupils turn green.
+If you take a picture of someone with flash, you'll noticed that their pupils show a red-ish color, this is what "Eyeshine" is, a few other terms are "Retroreflection" or "Tapetum lucidum".
 
-This shader also supports it! To test that feature, I would recommend placing a light source in your scene, and place it close to your avatar's eyes.
+This shader now also supports it. To test that feature, I would recommend placing a light source in your scene, and place it close to your avatar's eyes.
 Here are the settings :
 - The Retroreflection toggles turns in on or off
 - "Retroreflection Eye zones" : A mask containing informations how the retroreflection should be shown
     - The red channel should cover the entire pupil
     - The green and blue channels can be used to customize the shape/color of the retroreflection, that area should be bigger than the pupil.
     
-Here's an example of a mask, the nask will depend on how your avatar eyes are shaped, the green/blue gradient is recommended so other players can more easily percieve depth, feel free to try different things:
+Here's an example of a mask, the mask will depend on how your avatar eyes are shaped. For the green/blue layers,  I chose a gradient, but you can draw whatever you want with those two colors, for instance something that would look closer to a retina.
 
 <img src="https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/MaskExample2.png" width=25% >
 
