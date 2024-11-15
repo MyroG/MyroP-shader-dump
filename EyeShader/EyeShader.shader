@@ -285,7 +285,7 @@ Shader "MyroP/EyeShader"
 			float2 Offset227 = ( ( 0.0 - 1 ) * ( i.viewDir.xy / i.viewDir.z ) * _Retroreflectiondepth ) + i.uv_texcoord;
 			float4 tex2DNode320 = tex2D( _RetroreflectionEyezones, Offset227 );
 			#ifdef _RETROREFLECTION_ON
-				float4 staticSwitch333 = ( saturate( ( 1.0 - fresnelNode251 ) ) * saturate( ( 1.0 - fresnelNode371 ) ) * ( float4( ase_lightColor.rgb , 0.0 ) * ( ase_lightColor.a - _Retroreflectionminimumlightintensity ) * tex2D( _RetroreflectionEyezones, uv_RetroreflectionEyezones ).r * ( ( _Retroreflectioncolor1 * tex2DNode320.g ) + ( tex2DNode320.b * _Retroreflectioncolor2 ) ) ) * saturate( ase_lightAtten ) );
+				float4 staticSwitch333 = ( saturate( ( 1.0 - fresnelNode251 ) ) * saturate( ( 1.0 - fresnelNode371 ) ) * ( float4( ase_lightColor.rgb , 0.0 ) * ( ase_lightColor.a - _Retroreflectionminimumlightintensity ) * tex2D( _RetroreflectionEyezones, uv_RetroreflectionEyezones ).r * ( ( _Retroreflectioncolor1 * tex2DNode320.g ) + ( tex2DNode320.b * _Retroreflectioncolor2 ) ) * 2.0 ) * saturate( ase_lightAtten ) );
 			#else
 				float4 staticSwitch333 = float4( 0,0,0,0 );
 			#endif
@@ -412,7 +412,7 @@ Node;AmplifyShaderEditor.CommentaryNode;335;-3202.363,-676.2567;Inherit;False;70
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;299;-906.4219,-1723.738;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;298;-869.6995,-1912.605;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RangedFloatNode;100;-3117.625,-55.56429;Inherit;False;Property;_Smoothness;Smoothness;3;0;Create;True;0;0;0;False;0;False;1;1;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.CommentaryNode;260;-1862.653,-1518.431;Inherit;False;1628.399;724.8843;Rendering the inside of the pupil, I am also using the "Parallax mapping" node to have some depth;16;254;362;231;253;361;327;326;324;230;325;320;321;227;224;221;223;;1,1,1,1;0;0
+Node;AmplifyShaderEditor.CommentaryNode;260;-1862.653,-1518.431;Inherit;False;1628.399;724.8843;Rendering the inside of the pupil, I am also using the "Parallax mapping" node to have some depth;17;254;362;231;253;361;327;326;324;230;325;320;321;227;224;221;223;374;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.TexturePropertyNode;115;-3081.363,-425.5407;Inherit;True;Property;_Normal;Normal;1;0;Create;True;0;0;0;False;0;False;None;None;False;bump;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.CommentaryNode;210;-1891.905,-670.7226;Inherit;False;1732.832;417.6312;LTCGI;11;345;344;212;109;209;343;113;112;114;342;346;LTCGI;0.1664293,0.6415094,0.2614454,1;0;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;338;-2797.102,-54.41379;Inherit;False;paramSmoothness;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
@@ -479,11 +479,12 @@ Node;AmplifyShaderEditor.LightAttenuation;363;-32.17241,-1076.995;Inherit;True;0
 Node;AmplifyShaderEditor.SamplerNode;231;-789.7204,-1282.201;Inherit;True;Property;_regionMask;region Mask;1;0;Create;True;0;0;0;False;0;False;-1;dea87864c7ad02a4fa6c748cdd1b6247;bdf2fd130023a1443af8c801da212af8;True;0;False;black;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleSubtractOpNode;362;-580.9941,-1389.719;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.OneMinusNode;372;142.0486,-1792.454;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;374;-580.5187,-864.255;Inherit;False;Constant;_strength;strength;26;0;Create;True;0;0;0;False;0;False;2;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.StaticSwitch;346;-663.5332,-554.6316;Inherit;False;Property;_LTCGI;LTCGI;7;0;Create;True;0;0;0;False;0;False;0;0;0;True;;Toggle;2;Key0;Key1;Create;True;True;All;9;1;COLOR;0,0,0,0;False;0;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;4;COLOR;0,0,0,0;False;5;COLOR;0,0,0,0;False;6;COLOR;0,0,0,0;False;7;COLOR;0,0,0,0;False;8;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SaturateNode;250;458.8231,-2152.281;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;367;-189.7845,189.6776;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SaturateNode;364;214.7141,-1194.553;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;254;-393.7556,-1414.337;Inherit;False;4;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;254;-393.7556,-1414.337;Inherit;False;5;5;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;COLOR;0,0,0,0;False;4;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SaturateNode;373;314.8662,-1789.927;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;345;-440.6418,-557.1655;Inherit;False;LTCGI;-1;True;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.GetLocalVarNode;213;728.7875,-471.9373;Inherit;False;211;paramNormal;1;0;OBJECT;;False;1;SAMPLER2D;0
@@ -583,6 +584,7 @@ WireConnection;254;0;253;1
 WireConnection;254;1;362;0
 WireConnection;254;2;231;1
 WireConnection;254;3;327;0
+WireConnection;254;4;374;0
 WireConnection;373;0;372;0
 WireConnection;345;0;346;0
 WireConnection;350;0;367;0
@@ -609,4 +611,4 @@ WireConnection;318;0;304;0
 WireConnection;318;1;233;0
 WireConnection;0;13;318;0
 ASEEND*/
-//CHKSM=96DF1B04B045769C744331D4429E01F1C2581CE5
+//CHKSM=5BF5D3592413B1F7D68D4398D107B36A4C9ADE00
