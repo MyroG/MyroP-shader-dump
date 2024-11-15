@@ -8,6 +8,8 @@ The 3 main features can be seen below
 
 ![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/video.gif)
 
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/retro.png)
+
 ## Installation
 
 - Install LTCGI https://github.com/PiMaker/ltcgi, this package was tested with LTCGI 1.4.1
