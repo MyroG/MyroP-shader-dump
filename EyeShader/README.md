@@ -41,11 +41,11 @@ Lastly, there are two settings to customize the flow speed and strength : Flow S
 To test that feature, I would recommend placing a light source in your scene, and place it close to your avatar's eyes.
 Here are the settings :
 - The Retroreflection toggles turns in on or off
-- "Retroreflection Eye zones" : A mask containing informations how the retroreflection should be shown
-    - The red channel should cover the entire pupil
-    - The green and blue channels can be used to customize the shape/color of the retroreflection, that area should be bigger than the pupil.
+- "Retroreflection Eye zones" : A mask containing information about how the retroreflection should be shown :
+    - Red channel: This should cover the entire pupil and defines where the effect needs to be rendered.
+    - Green and Blue Channels: These channels define the appearance of the retroreflection effect. The area they cover should be larger than the pupil and aligned with its position. You can also color the entire mask in cyan (#00FFFF).
     
-Here's an example of a mask, the mask will depend on how your avatar eyes are shaped. For the green/blue layers,  I chose a gradient, but you can draw whatever you want with those two colors, for instance something that would look closer to a retina.
+Here's an example of a mask, but you'll need to create your own since you're likely using a different avatar than mine. For the green and blue layers, I chose a gradient, but you can draw anything you like with those two colors, perhaps something resembling a retina, for instance.
 
 <img src="https://github.com/MyroG/MyroP-shader-dump/blob/master/EyeShader/Doc/MaskExample2.png" width=25% >
 
