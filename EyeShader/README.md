@@ -38,9 +38,7 @@ Those settings will mostly work in AudioLinked worlds :
 Lastly, there are two settings to customize the flow speed and strength : Flow Speed and Flow strength.
 
 ### "Retroreflection" settings
-If you take a picture of someone with flash, you'll noticed that their pupils show a red-ish color, this is what "Eyeshine" is, a few other terms are "Retroreflection" or "Tapetum lucidum".
-
-This shader now also supports it. To test that feature, I would recommend placing a light source in your scene, and place it close to your avatar's eyes.
+To test that feature, I would recommend placing a light source in your scene, and place it close to your avatar's eyes.
 Here are the settings :
 - The Retroreflection toggles turns in on or off
 - "Retroreflection Eye zones" : A mask containing informations how the retroreflection should be shown
