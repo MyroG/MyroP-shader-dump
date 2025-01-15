@@ -12,7 +12,7 @@ The 3 main features can be seen below
 
 ## Installation
 
-- Install LTCGI from here https://github.com/PiMaker/ltcgi or via VCC https://vpm.pimaker.at, this package was tested with LTCGI 1.4.1
+- Install LTCGI from here https://github.com/PiMaker/ltcgi or via VCC https://vpm.pimaker.at, this package was tested with LTCGI 1.4.1. This step is required if you decide to only download the `EyeShader.shader` file.
 - Install AudioLink via the VCC package manager
 - It should be enough to download the `EyeShader.shader` file, but if you're planning to edit the shader later with the Amplify shader editor, you also need to download the `ASEFunctions` folder at the root of this repository.
 
