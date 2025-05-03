@@ -2,6 +2,8 @@
 
 A music visualizer you can put in your VRChat world or avatar. The logo can be replaced with whatever logo you want
 
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/MusicVisualizer/Doc/visualiser.gif)
+
 ## Installation
 1) Install AudioLink via VCC
 2) Download the whole "MusicVisualizer" folder, and import it into Unity
@@ -47,6 +49,8 @@ Those settings affect the audio spectogram rendered behing the logo
 ## Are you a shader creator?
 
 - Use the "M_Music Visualizer" function to add that visualizer in your own shader!
+
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/MusicVisualizer/Doc/funct.png)
 
 ## License
 
