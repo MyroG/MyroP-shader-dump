@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MusicVisualizerExample
+  m_Shader: {fileID: 4800000, guid: 243fe6cb49d3bb347815a6a8461496b3, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Logo:
+        m_Texture: {fileID: 2800000, guid: 7682a0d099898344a95aea6c5677b45f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AudioLinkDebug: 0
+    - _BassIntensity: 0.417
+    - _BassShakeIntensity: 0.025
+    - _BassShakeStart: 0.751
+    - _BumpScale: 1
+    - _Chromaticabberation: 0.088
+    - _Cutoff: 0.5
+    - _Debug_High: 0
+    - _Debug_HighMid: 0.6703202
+    - _Debug_Low: 1
+    - _Debug_LowMid: 1
+    - _DefaultLogoZoom: 1.82
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Float3: 0.69
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HighMidShakeIntensity: 20
+    - _HighMidShakeSpeed: 0
+    - _LogoRotationSpeed: -0.15
+    - _LogoRotationspeed: 0.27
+    - _LowMidChromaticIntensity: 0.063
+    - _LowMidChromaticStart: 0
+    - _LowShakeIntensity: 0.025
+    - _LowShakeStart: 0.751
+    - _LowZoomIntensity: 0.417
+    - _Metallic: 0
+    - _MidHighShakeIntensity: 0.005
+    - _MidHighShakeSpeed: 1
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _ShakeIntensity: 0.005
+    - _ShakeSpeed: 1
+    - _SmoothnessTextureChannel: 0
+    - _Spectrograminnercircle: 0.263
+    - _Spectrograminnerradius: 0.263
+    - _Spectrogramoutercircle: 0.268
+    - _Spectrogramouterradius: 0.66783094
+    - _Spectrogramrotationinrad: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _ToggleSwitch0: 0
+    - _UVSec: 0
+    - _ZWrite: 1
+    - __dirty: 0
+    - _divvwevc: 0.67
+    m_Colors:
+    - _BassShakeIntensity: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Innercirclecolor: {r: 1, g: 0, b: 0, a: 0.36078432}
+    - _LogoRotationAnchor: {r: 0.5, g: 0.475, b: 0, a: 0}
+    - _Spectogramcolor: {r: 1, g: 1, b: 1, a: 0}
+    - _Spectograminnercolor: {r: 1, g: 0, b: 0, a: 0.36078432}
+    - _Spectogramoutercolor: {r: 1, g: 1, b: 1, a: 0}
+    - _SpectrogramOrigin: {r: 0.5, g: 0.475, b: 0, a: 0}
+  m_BuildTextureStacks: []
