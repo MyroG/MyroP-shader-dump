@@ -47,3 +47,7 @@ Those settings affect the audio spectogram rendered behing the logo
 ## Are you a shader creator?
 
 - Use the "M_Music Visualizer" function to add that visualizer in your own shader!
+
+## License
+
+MIT
