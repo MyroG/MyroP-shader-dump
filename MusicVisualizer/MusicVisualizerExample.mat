@@ -12,7 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _AUDIOLINKDEBUG_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -69,7 +70,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AudioLinkDebug: 0
+    - _AudioLinkDebug: 1
     - _BassIntensity: 0.417
     - _BassShakeIntensity: 0.025
     - _BassShakeStart: 0.751
@@ -77,9 +78,9 @@ Material:
     - _Chromaticabberation: 0.088
     - _Cutoff: 0.5
     - _Debug_High: 0
-    - _Debug_HighMid: 0.6703202
-    - _Debug_Low: 1
-    - _Debug_LowMid: 1
+    - _Debug_HighMid: 0
+    - _Debug_Low: 0
+    - _Debug_LowMid: 0
     - _DefaultLogoZoom: 1.82
     - _DefaultZoomLevel: 1.82
     - _DefaultZoomlevel: 1.82
@@ -89,6 +90,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HighGlitchIntensity: 0.1
     - _HighMidShakeIntensity: 20
     - _HighMidShakeSpeed: 0
     - _LogoRotationSpeed: -0.15
@@ -127,7 +129,7 @@ Material:
     - _Innercirclecolor: {r: 1, g: 0, b: 0, a: 0.36078432}
     - _LogoRotationAnchor: {r: 0.5, g: 0.475, b: 0, a: 0}
     - _Spectogramcolor: {r: 1, g: 1, b: 1, a: 0}
-    - _Spectograminnercolor: {r: 1, g: 0, b: 0, a: 0.36078432}
-    - _Spectogramoutercolor: {r: 1, g: 1, b: 1, a: 0}
+    - _Spectograminnercolor: {r: 1, g: 0, b: 0, a: 0}
+    - _Spectogramoutercolor: {r: 1, g: 1, b: 1, a: 1}
     - _SpectrogramOrigin: {r: 0.5, g: 0.475, b: 0, a: 0}
   m_BuildTextureStacks: []
