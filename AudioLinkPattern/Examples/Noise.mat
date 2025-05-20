@@ -11,8 +11,10 @@ Material:
   m_Shader: {fileID: 4800000, guid: 182cd432868fcbb4fad6b34eac35a7fc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ValidKeywords:
+  - _PULSATING_ON
+  m_InvalidKeywords:
+  - _VERTEXDISPLACEMENT_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -146,6 +148,8 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 0.5
     - _Parallax: 0.02
+    - _Pulsating: 1
+    - _RaveMode: 1
     - _RimIntensity: 7.08
     - _SaturationNoAudioLink: 0.5
     - _SmoothHistory: 1
@@ -161,6 +165,7 @@ Material:
     - _Trippyness: 1
     - _Trippyness2: 1
     - _UVSec: 0
+    - _Vertexdisplacement: 1
     - _VideoPlayerEmissiveboost: 5.71
     - _VideoPlayerTrippyness: 1
     - _VideoScreenEmissiveboost: 1
@@ -179,6 +184,8 @@ Material:
     - _Waveinsidegrid: 18
     - _ZWrite: 1
     - __dirty: 0
+    - _largeness: 1
+    - _thickness: 0.02
     m_Colors:
     - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _Band0Color: {r: 1, g: 0, b: 0, a: 1}

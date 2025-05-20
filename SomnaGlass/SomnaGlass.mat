@@ -1,0 +1,239 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SomnaGlass
+  m_Shader: {fileID: 4800000, guid: 98db2c1c784111e429472f8fd291639c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _AUDIOLINK_ON
+  - _EMISSION
+  - _FRESNEL_ON
+  - _SOMNAEDGEFADE_ON
+  m_InvalidKeywords:
+  - _ALPHABLEND_ON
+  - _LTCGI_ON
+  - _VERTEXDISPLACEMENT_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: c5ec4116e6fa5794c8d96565d28e04c6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: c5ec4116e6fa5794c8d96565d28e04c6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MicrophoneIcon:
+        m_Texture: {fileID: 2800000, guid: 870247b47f3f58942a8b4b7630f73b49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Microphoneicon:
+        m_Texture: {fileID: 2800000, guid: 870247b47f3f58942a8b4b7630f73b49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SomnaConstellation:
+        m_Texture: {fileID: 2800000, guid: cb701384da82d404285664108c017f56, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SomnaMask:
+        m_Texture: {fileID: 2800000, guid: cb701384da82d404285664108c017f56, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Starnoisetexture:
+        m_Texture: {fileID: 2800000, guid: 81802a1f8f1d0744da81de5886a2faa2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: b153f44efdcb9f0489e9fc7e6145793b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AUDIOLINK: 1
+    - _AnimeEffect: 0
+    - _AnimeEffect1: 0
+    - _AnimeGlassesGlare: 0
+    - _Animeglassesglare: 0
+    - _AudioLinkIntensity: 1
+    - _AudioLinkIntensity1: 1
+    - _AudioLinkintensity: 2
+    - _BumpScale: 1
+    - _CameraDistanceFade: 16.4
+    - _Colorbrightness: 0.77
+    - _Colorhue: 0.485
+    - _Colorsaturation: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DissolveEdgeIntensity: 5
+    - _DissolveEdgeWidth: 0.033
+    - _DissolveProgress: 1
+    - _DstBlend: 10
+    - _Float6: 0.3
+    - _Fresnel: 1
+    - _FresnelBias: 0
+    - _FresnelPower: 5.8
+    - _FresnelScale: 5.96
+    - _Glitch: 0.05
+    - _GlossMapScale: 1
+    - _Glossiness: 0.796
+    - _GlossyReflections: 1
+    - _LTCGI: 1
+    - _LTCGI1: 0
+    - _Metallic: 0
+    - _Mode: 2
+    - _MuteBrightness: 1
+    - _MuteEmissiveBrightness: 1
+    - _MuteEmissiveHue: 0
+    - _MuteEmissiveSaturation: 0.5
+    - _MuteHue: 0
+    - _MuteSaturation: 0.5
+    - _OcclusionStrength: 1
+    - _Opacity: 0.5
+    - _Parallax: 0.02
+    - _ScanlinesIntensity1: 0
+    - _ScanlinesIntensity2: 0
+    - _ScanlinesSpeed1: -0.006
+    - _ScanlinesSpeed2: 0.03
+    - _ScanlinesTiling1: -5000
+    - _ScanlinesTiling2: 11.6
+    - _Scanlinesspeed: 0.012
+    - _Showmicrophone: 0
+    - _Smoothness: 0.904
+    - _SmoothnessTextureChannel: 0
+    - _SomnaAnimationSpeed1: 0.1
+    - _SomnaAnimationSpeed2: 0.13
+    - _SomnaBackgroundAnimationSpeed: 0.13
+    - _SomnaBackgroundDistance: 0.13
+    - _SomnaBackgroundIntensity: 0.518
+    - _SomnaBackgroundScrollSpeed: -0.048
+    - _SomnaCameraDistanceFade: 5.7
+    - _SomnaEdgeFade: 1
+    - _SomnaEdgeFadeBias: 0
+    - _SomnaEdgeFadePower: 5
+    - _SomnaEdgeFadeScale: 10.31
+    - _SomnaForegroundAnimationSpeed: 0.1
+    - _SomnaForegroundDistance: 0.8
+    - _SomnaForegroundIntensity: 1
+    - _SomnaForegroundScrollSpeed: -0.103
+    - _Somnaconstellationdepth: 0.553
+    - _Somnaheight: 0.88
+    - _Somnaheight1: 0.88
+    - _Somnascale: 5.14
+    - _Somnascale1: 15.1
+    - _SpecularHighlights: 1
+    - _SrcBlend: 5
+    - _StarnoiseOffset: 0.82
+    - _UVSec: 0
+    - _UnmuteEmissiveBrightness: 1
+    - _UnmuteEmissiveHue: 0.5
+    - _UnmuteEmissiveSaturation: 0.5
+    - _Unmutebrightness: 0.66
+    - _Unmutehue: 0.68
+    - _Unmutesaturation: 0.5
+    - _Vertexdisplacement: 1
+    - _VideoIntensity: 2
+    - _Videointensity: 5
+    - _ZWrite: 0
+    - __dirty: 0
+    - _glitchEffect: 0.05
+    - _glitchEffect1: 0.02
+    - _largeness: 1
+    - _micGlitchEffect: 0.05
+    - _micGlitchEffect1: 0.05
+    - _showMicrophone: 0.029
+    - _showMicrophone1: 0
+    - _thickness: 1
+    m_Colors:
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AudioLinkColorLow: {r: 1, g: 0, b: 0, a: 0}
+    - _AudioLinkcolorHigh: {r: 1, g: 0.5019608, b: 0, a: 0}
+    - _AudioLinkcolorLow: {r: 0, g: 0, b: 1, a: 0}
+    - _AudioLinkcolorMid1: {r: 0.28627437, g: 0.003921569, b: 0.7254902, a: 0}
+    - _AudioLinkcolorMid2: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0, g: 0.648401, b: 1, a: 0.6862745}
+    - _EmissionColor: {r: 0, g: 0.7658329, b: 2.6390157, a: 1}
+    - _EmissionColorMute: {r: 1.4980392, g: 0.2431372, b: 0.2674645, a: 1}
+    - _EmissiveTextureColor: {r: 0, g: 0, b: 0, a: 0}
+    - _FresnelColor: {r: 0.69886005, g: 0.3382292, b: 0.08900577, a: 0}
+    - _GlassColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Glasscolor: {r: 0.022427911, g: 0.0573204, b: 0.22641507, a: 0.5058824}
+    - _MicrophoneIconOffset: {r: -2.97, g: -1, b: 0, a: 0}
+    - _MicrophoneIconTiling: {r: 6.94, g: 2.2, b: 0, a: 0}
+    - _Microphoneiconoffset: {r: -2.97, g: -1, b: 0, a: 0}
+    - _Microphoneicontiling: {r: 6.94, g: 2.2, b: 0, a: 0}
+    - _SomnaBackgroundColor: {r: 0.44850507, g: 0.06359598, b: 1.4980394, a: 0}
+    - _SomnaColor: {r: 0.8212517, g: 0.2823468, b: 1.6177709, a: 0}
+    - _SomnaForegroundColor: {r: 0.26666665, g: 0.3900052, b: 1.4980391, a: 0}
+    - _SomnaMaskTiling: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

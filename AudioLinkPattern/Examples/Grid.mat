@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 6f3d4202eedf0914d83e2fba24c859fc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _PULSATING_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
@@ -140,6 +141,8 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 0.5
     - _Parallax: 0.02
+    - _Pulsating: 1
+    - _RaveMode: 1
     - _RimIntensity: 7.08
     - _SaturationNoAudioLink: 0.5
     - _SmoothHistory: 1
@@ -174,6 +177,8 @@ Material:
     - _Waveinsidegrid: 18
     - _ZWrite: 1
     - __dirty: 0
+    - _largeness: 1
+    - _thickness: 0.02
     m_Colors:
     - _Band0Color: {r: 1, g: 0, b: 0, a: 1}
     - _Band1Color: {r: 1, g: 0.8683747, b: 0, a: 1}

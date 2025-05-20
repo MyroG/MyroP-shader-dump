@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: 6f3d4202eedf0914d83e2fba24c859fc
+guid: 98db2c1c784111e429472f8fd291639c
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _SomnaMask: {fileID: 2800000, guid: cb701384da82d404285664108c017f56, type: 3}
   nonModifiableTextures: []
   userData: 
   assetBundleName: 

@@ -14,7 +14,7 @@ Shader "MyroP/Standard 2DEffect"
 		_Emission("Emission", 2D) = "white" {}
 		[HDR]_EmissionColor("EmissionColor", Color) = (0,0,0,0)
 		[Toggle(_VERTEXDISPLACEMENT_ON)] _Vertexdisplacement("Vertex displacement", Float) = 1
-		_thickness("thickness", Range( 0 , 2)) = 0.02
+		_thickness("thickness", Range( 0 , 5)) = 0.02
 		_largeness("largeness", Range( 0 , 2)) = 1
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
@@ -136,7 +136,7 @@ Shader "MyroP/Standard 2DEffect"
 /*ASEBEGIN
 Version=19302
 Node;AmplifyShaderEditor.RangedFloatNode;12;29.02069,809.4554;Inherit;False;Property;_largeness;largeness;11;0;Create;True;0;0;0;False;0;False;1;1;0;2;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;13;32.02069,731.4554;Inherit;False;Property;_thickness;thickness;10;0;Create;False;0;0;0;False;0;False;0.02;1;0;2;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;13;32.02069,731.4554;Inherit;False;Property;_thickness;thickness;10;0;Create;False;0;0;0;False;0;False;0.02;1;0;5;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ColorNode;3;-572.5,13.5;Inherit;False;Property;_Color;Color;1;0;Create;True;0;0;0;False;0;False;0,0,0,0;1,1,1,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;1;-640.5,-171.5;Inherit;True;Property;_Albedo;Albedo;0;0;Create;True;0;0;0;False;0;False;-1;None;e8e479c7c37997a44b26bbf346ef112e;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;18;-341.0305,317.1123;Inherit;False;Property;_SmoothnessOffset;SmoothnessOffset;4;0;Create;True;0;0;0;False;0;False;0;0.92;-1;1;0;1;FLOAT;0
@@ -174,4 +174,4 @@ WireConnection;0;4;19;0
 WireConnection;0;5;8;2
 WireConnection;0;11;16;0
 ASEEND*/
-//CHKSM=14283159F30259243AE6644F0265A21BCAEE1B42
+//CHKSM=9D740D05BB2A5EFEFE9BE6C1E1441B4360A456BC
