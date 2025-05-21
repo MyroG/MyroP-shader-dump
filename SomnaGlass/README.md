@@ -26,4 +26,5 @@ For optimal result, do not compress the "Somna Mask" texture.
 
 ## License
 
-MIT
+The shader is licensed under the MIT license.
+The "Somna_Pattern-6.png" texture is licensed under the Furality, Inc. Asset License Version 1.5, full license can be found in the LICENSE_FURALITY.txt file 

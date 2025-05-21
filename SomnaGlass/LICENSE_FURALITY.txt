@@ -1,0 +1,139 @@
+Copyright 2025 Furality, Inc.
+
+Licensed under the Furality, Inc. Asset License Version 1.5 (the "License");
+you may not use these asset files except in compliance with the License.
+You may obtain a copy of the License at
+
+   https://furality.org/asset-license
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-------
+
+Furality, Inc. Asset License Version 1.5
+=======================================
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+This is a license agreement between you and Furality, Inc. that explains how you can use 3D Assets, illustrations,
+shaders, and creative tools authored by Furality, Inc. (the "content").
+
+By downloading content from Furality, Inc., you accept the terms of this agreement.
+
+How can I use licensed content?
+    Notwithstanding use restrictions (see Restricted Uses below) and the rest of the terms of this agreement,
+    the usage rights granted to you by Furality, Inc. for each asset type are:
+
+    Furality Aqua Shader / Furality Legendary Shader / Furality Luma Shader / Furality Sylva Shader / Furality Umbra Shader / Furality Somna Shader
+    - You can use this asset for commercial use.
+    - You can use this asset for personal use.
+    - You can use this asset in public and/or private avatars uploaded to VRChat.
+    - You can not share the files alone with any other person.
+    - You can however repack and distribute the shader package with avatars and avatar accessories that use it.
+    - You must attribute the use of the shader in the description of any avatars or avatar accessories published for
+        download with: "This project includes and uses the Furality [Aqua/Legendary/Luma/Sylva/Umbra] Shader by Furality, Inc. (https://furality.org) with permission." 
+        (chose the appropriate name for the shader used in the [] for the above attribution)
+    - You can not combine the files into another shader or tool.
+    - You can not modify the shader files (other than settings defined in properties UI).
+    - You can not hack, reverse engineer, decompile, disassemble, modify or create derivative works of the shader code or
+        any part of the shader code.
+
+
+    Furality Aqua Runes / Furality Luma Flow / Furality Aqua Substance Painter Tools / Furality Luma Runes / Furality Sylva Substance Painter Tools 
+        / Furality Umbra Substance Painter Tools / Furality Somna Creator Assets / Furality Somna Sigils / Furality Somna Constellation Alphas / Furality Somna Pattern Alphas
+    - You can use this asset for commercial use.
+    - You can use this asset for personal use.
+    - You can modify this asset.
+    - You can use this asset in public and/or private avatars uploaded to VRChat.
+    - You can not share the files alone with any other person.
+    - You can however repack and distribute this asset with avatars and avatar accessories that use it.
+
+
+    Furality Aqua Fins (excludes Fins from Furality Online Xperience Asset Packs)
+    - You can use this asset for commercial use.
+    - You can use this asset for personal use.
+    - You can modify this asset.
+    - You can use this asset in public and/or private avatars uploaded to VRChat.
+    - You can not share the files alone with any other person.
+    - You can however repack and distribute this asset with avatars and avatar accessories that use it.
+    - You must attribute the use of these assets in the description of any avatars or avatar accessories published
+        for download with: "This project includes and uses the Furality Aqua Fins by Furality, Inc. (https://furality.org) with permission."
+
+
+    Furality Badges / Furality BadgeMaker / Furality Online Xperience Asset Packs (First Class / Sponsor Registration Perk)
+    - You can use this asset for personal use only.
+    - You can modify this asset.
+    - You can use this asset in public and/or private avatars uploaded to VRChat on your own account.
+    - You can not add these assets to other's avatars if they do not own a copy.
+    - You can not use this asset for commercial use.
+        However, recording/streaming video of avatars with this asset is permitted even if commercial in nature.
+    - You can not share the files with any other person.
+    - You can not repack and distribute the files with other projects.
+
+
+    Furality Supporter Assets (Discord/Patreon Subscription Rewards)
+    - You can use this asset for personal use only.
+    - You can modify this asset.
+    - You can use this asset in private avatars uploaded to VRChat on your own account.
+    - You can not add these assets to other's avatars if they do not own a copy.
+    - You can not use this asset for commercial use.
+        However, recording/streaming video of avatars with this asset is permitted even if commercial in nature.
+    - You can not share the files with any other person.
+    - You can not repack and distribute the files with other projects.
+
+
+Restricted Uses
+    - You may not use asset files for any purpose that may be defamatory, threatening, abusive, harmful or invasive of
+        anyone’s privacy, or that may otherwise violate any law or give rise to civil or other liability.
+    - You may not use asset files for the purpose of hate, bigotry, to cause harm, to cause fear, promote animal cruelty,
+        or any politically motivated message or agenda. This includes but is not limited to: modification of the assets
+        or using the assets in association with such purposes.
+    - You may not use asset files for any purpose which violates the Furality Online Xperience Code of Conduct found at
+        https://furality.org/codeofconduct or which violates the VRChat Terms of Use found at https://www.vrchat.com/legal.
+    - No Standalone File Use. You may not use content in any way that allows others to download content as a standalone file
+        (meaning just the content file itself, separate from the project or end use).
+    - No Use in Trademark or Logo. You may not use content (in whole or in part) as the distinctive or distinguishing
+        feature of a trademark, design mark, tradename, business name, service mark, or logo. Additionally, you shall not be
+        entitled to register (in any jurisdiction) such content (in whole or in part) as a trademark or rely on any such
+        registrations, prior use, and/or accrued goodwill to prevent any third party use of the content or any similar
+        content (including by us, our customers, or the copyright owner of such content).
+    - No False Representation of Authorship. You may not falsely represent that you are the original creator of an end use
+        that is made up largely of licensed content. For instance, you cannot create a painting based solely on licensed
+        content and claim that you are the author.
+
+
+Trademarks
+    This License does not grant permission to use the trade names, trademarks, service marks, or product names of
+    Furality, Inc., except as required for attribution statement in the manner described above.
+
+
+Content Withdrawal
+    Furality, Inc. may discontinue licensing any item covered by this License at any time in its sole discretion.
+
+
+Disclaimer of Warranty
+    Unless required by applicable law or agreed to in writing, Furality, Inc. provides the asset files on an "AS IS"
+    BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation,
+    any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE.
+    You are solely responsible for determining the appropriateness of using or redistributing the asset files and
+    assume any risks associated with Your exercise of permissions under this License.
+
+
+Limitation of Liability
+    In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless
+    required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall
+    Furality, Inc. be liable to you for damages, including any direct, indirect, special, incidental, or consequential
+    damages of any character arising as a result of this License or out of the use or inability to use the asset files
+    (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any
+    and all other commercial damages or losses), even if Furality, Inc. has been advised of the possibility of such damages.
+
+
+General Provisions.
+    - Assignment. This agreement is personal to you and is not assignable by you without Furality, Inc.'s prior written
+        consent. Furality, Inc. may assign this agreement, without notice or consent, to any corporate affiliate or to
+        any successor in interest, provided that such entity agrees to be bound by these terms.
+
+END OF TERMS AND CONDITIONS
