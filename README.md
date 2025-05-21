@@ -4,7 +4,8 @@ Feel free to check out each folder to see the documentation of each of them, the
 
 ## License
 
-MIT
+You can find a license file in each shader folder.
+If no license file is provided, then the shader is licensed under the MIT license.
 
 ## Credits
 
