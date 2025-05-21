@@ -1,0 +1,29 @@
+# Somna glass
+
+A little parralax shader you can apply on glass
+
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/SomnaGlass/Doc/example.png)
+
+
+## Installation
+
+- Install AudioLink via the VCC package manager
+- It should be enough to download the `SomnaGlass.shader` file, but if you're planning to edit the shader later with the Amplify shader editor, you also need to download the `ASEFunctions` folder at the root of this repository.
+
+## Settings
+
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/SomnaGlass/Doc/settings.png)
+
+The shader has two parralax layers : Foreground and background.
+Each layer can be customized with the "color", "scroll speed", "distance" and "animation speed" settings.
+
+Somna Edge Fade : Makes the parralax effect more transparent around the edgeys
+Somna Camera Distance fade : Makes the parralax effect dissapear when you're further away
+Fresnel : It's a rim light effect
+Lastly, there are also autioLink related settings.
+
+For optimal result, do not compress the "Somna Mask" texture.
+
+## License
+
+MIT
