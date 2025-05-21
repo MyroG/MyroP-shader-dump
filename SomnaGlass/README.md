@@ -1,6 +1,6 @@
 # Somna glass
 
-A little parralax shader you can apply on glass
+A little transparent parralax shader you can apply on glass
 
 ![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/SomnaGlass/Doc/example.png)
 
@@ -17,12 +17,14 @@ A little parralax shader you can apply on glass
 The shader has two parralax layers : Foreground and background.
 Each layer can be customized with the "color", "scroll speed", "distance" and "animation speed" settings.
 
+Glass color : Here you can change the glass color. To made the glass more or less transparent, you can play around with the alpha value
 Somna Edge Fade : Makes the parralax effect more transparent around the edgeys
 Somna Camera Distance fade : Makes the parralax effect dissapear when you're further away
 Fresnel : It's a rim light effect
 Lastly, there are also autioLink related settings.
 
 For optimal result, do not compress the "Somna Mask" texture.
+I would recommend playing around with each setting to see what each setting really does!
 
 ## License
 
