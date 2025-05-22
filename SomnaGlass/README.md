@@ -8,7 +8,7 @@ A little transparent parralax shader you can apply on glass
 ## Installation
 
 - Install AudioLink via the VCC package manager
-- Download and import the "SomnaGlass.unitypackage" file, that unitypackage is not located in the release category, but in this folder.
+- Download and import the "SomnaGlass.unitypackage" file from here https://github.com/MyroG/MyroP-shader-dump/blob/master/SomnaGlass/SomnaGlass.unitypackage
 
 ## Settings
 
@@ -28,5 +28,5 @@ I would recommend playing around with each setting to see what each setting real
 
 ## License
 
-The shader is licensed under the MIT license.
+The shader is licensed under the MIT license, a copy of the license can be found at the root of this repository.
 Since the "SomnaPattern" texture is based on the Furality creator asset, it is licensed under the Furality Inc. Asset License Version 1.5 (https://furality.org/asset-license)
