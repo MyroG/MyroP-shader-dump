@@ -8,7 +8,7 @@ A little transparent parralax shader you can apply on glass
 ## Installation
 
 - Install AudioLink via the VCC package manager
-- It should be enough to download the `SomnaGlass.shader` file, but if you're planning to edit the shader later with the Amplify shader editor, you also need to download the `ASEFunctions` folder at the root of this repository.
+- Download and import the "SomnaGlass.unitypackage" file, that unitypackage is not located in the release category, but in this folder.
 
 ## Settings
 
@@ -23,10 +23,10 @@ Somna Camera Distance fade : Makes the parralax effect dissapear when you're fur
 Fresnel : It's a rim light effect
 Lastly, there are also autioLink related settings.
 
-For optimal result, do not compress the "Somna Mask" texture.
+For optimal result, do not compress the "SomnaPattern" texture.
 I would recommend playing around with each setting to see what each setting really does!
 
 ## License
 
 The shader is licensed under the MIT license.
-The "Somna_Pattern-6.png" texture is licensed under the Furality, Inc. Asset License Version 1.5, full license can be found in the LICENSE_FURALITY.txt file 
+Since the "SomnaPattern" texture is based on the Furality creator asset, it is licensed under the Furality Inc. Asset License Version 1.5 (https://furality.org/asset-license)
