@@ -128,7 +128,7 @@ Material:
     - _Innercirclecolor: {r: 1, g: 0, b: 0, a: 0.36078432}
     - _LogoRotationAnchor: {r: 0.5, g: 0.475, b: 0, a: 0}
     - _Spectogramcolor: {r: 1, g: 1, b: 1, a: 0}
-    - _Spectograminnercolor: {r: 1, g: 0, b: 0, a: 0}
+    - _Spectograminnercolor: {r: 0, g: 0, b: 0, a: 0}
     - _Spectogramoutercolor: {r: 1, g: 1, b: 1, a: 1}
     - _SpectrogramOrigin: {r: 0.5, g: 0.475, b: 0, a: 0}
   m_BuildTextureStacks: []

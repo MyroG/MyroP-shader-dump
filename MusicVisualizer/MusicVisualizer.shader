@@ -58,7 +58,8 @@ Shader "MyroP/MusicVisualizer"
 			UnityGIInput GIData;
 		};
 
-		uniform sampler2D _Logo;
+		uniform float _Spectrograminnerradius;
+		uniform float2 _SpectrogramOrigin;
 		uniform float _LogoSize;
 		uniform float _AudioLinkDebug;
 		uniform float _Debug_Low;
@@ -69,45 +70,44 @@ Shader "MyroP/MusicVisualizer"
 		uniform float _MidHighShakeSpeed;
 		uniform float _MidHighShakeIntensity;
 		uniform float _Debug_HighMid;
+		uniform float4 _Spectograminnercolor;
+		uniform float4 _Spectogramoutercolor;
+		uniform float _Spectrogramouterradius;
+		uniform sampler2D _Logo;
 		uniform float _HighGlitchIntensity;
 		uniform float _LowMidChromaticIntensity;
 		uniform float _Debug_LowMid;
 		uniform float _LowMidChromaticStart;
-		uniform float _Spectrograminnerradius;
-		uniform float2 _SpectrogramOrigin;
-		uniform float4 _Spectograminnercolor;
-		uniform float4 _Spectogramoutercolor;
-		uniform float _Spectrogramouterradius;
 		uniform float _Cutoff = 0.5;
 
 
-		inline float AudioLinkData3_g482( int Band, int Delay )
+		inline float AudioLinkData3_g680( int Band, int Delay )
 		{
 			return AudioLinkData( ALPASS_AUDIOLINK + uint2( Delay, Band ) ).rrrr;
 		}
 
 
-		inline float AudioLinkData3_g489( int Band, int Delay )
+		inline float AudioLinkData3_g686( int Band, int Delay )
 		{
 			return AudioLinkData( ALPASS_AUDIOLINK + uint2( Delay, Band ) ).rrrr;
 		}
 
 
-		inline float AudioLinkData3_g481( int Band, int Delay )
+		inline float AudioLinkData3_g679( int Band, int Delay )
 		{
 			return AudioLinkData( ALPASS_AUDIOLINK + uint2( Delay, Band ) ).rrrr;
 		}
 
 
-		inline float AudioLinkData3_g486( int Band, int Delay )
-		{
-			return AudioLinkData( ALPASS_AUDIOLINK + uint2( Delay, Band ) ).rrrr;
-		}
-
-
-		float MyCustomExpression1_g487( float x )
+		float MyCustomExpression1_g693( float x )
 		{
 			return AudioLinkLerpMultiline( ALPASS_DFT + float2( x * AUDIOLINK_ETOTALBINS, 0.0f ) ).rrrr;
+		}
+
+
+		inline float AudioLinkData3_g684( int Band, int Delay )
+		{
+			return AudioLinkData( ALPASS_AUDIOLINK + uint2( Delay, Band ) ).rrrr;
 		}
 
 
@@ -116,81 +116,79 @@ Shader "MyroP/MusicVisualizer"
 			UnityGIInput data = s.GIData;
 			Input i = s.SurfInput;
 			half4 c = 0;
-			int Band3_g482 = 0;
-			int Delay3_g482 = 0;
-			float localAudioLinkData3_g482 = AudioLinkData3_g482( Band3_g482 , Delay3_g482 );
-			float Bass19_g480 = (( _AudioLinkDebug )?( _Debug_Low ):( localAudioLinkData3_g482 ));
-			float temp_output_3_0_g485 = ( _LogoSize - ( Bass19_g480 * _LowZoomIntensity ) );
-			float temp_output_110_0_g480 = _LowShakeIntensity;
+			float temp_output_115_0_g678 = _Spectrograminnerradius;
+			float2 temp_output_114_0_g678 = _SpectrogramOrigin;
+			int Band3_g680 = 0;
+			int Delay3_g680 = 0;
+			float localAudioLinkData3_g680 = AudioLinkData3_g680( Band3_g680 , Delay3_g680 );
+			float Bass19_g678 = (( _AudioLinkDebug )?( _Debug_Low ):( localAudioLinkData3_g680 ));
+			float temp_output_3_0_g683 = ( _LogoSize - ( Bass19_g678 * _LowZoomIntensity ) );
+			float temp_output_110_0_g678 = _LowShakeIntensity;
 			float2 temp_cast_5 = (_Time.y).xx;
-			float dotResult4_g483 = dot( temp_cast_5 , float2( 12.9898,78.233 ) );
-			float lerpResult10_g483 = lerp( -temp_output_110_0_g480 , temp_output_110_0_g480 , frac( ( sin( dotResult4_g483 ) * 43758.55 ) ));
-			float mulTime23_g480 = _Time.y * 0.5;
-			float2 temp_cast_6 = (mulTime23_g480).xx;
-			float dotResult4_g484 = dot( temp_cast_6 , float2( 12.9898,78.233 ) );
-			float lerpResult10_g484 = lerp( -temp_output_110_0_g480 , temp_output_110_0_g480 , frac( ( sin( dotResult4_g484 ) * 43758.55 ) ));
-			float2 appendResult39_g480 = (float2(lerpResult10_g483 , lerpResult10_g484));
-			int Band3_g489 = 3;
-			int Delay3_g489 = 0;
-			float localAudioLinkData3_g489 = AudioLinkData3_g489( Band3_g489 , Delay3_g489 );
-			float High10_g480 = (( _AudioLinkDebug )?( _Debug_High ):( localAudioLinkData3_g489 ));
-			float temp_output_112_0_g480 = _MidHighShakeSpeed;
-			float mulTime30_g480 = _Time.y * ( High10_g480 * temp_output_112_0_g480 );
-			float temp_output_113_0_g480 = _MidHighShakeIntensity;
-			int Band3_g481 = 2;
-			int Delay3_g481 = 0;
-			float localAudioLinkData3_g481 = AudioLinkData3_g481( Band3_g481 , Delay3_g481 );
-			float HighMid11_g480 = (( _AudioLinkDebug )?( _Debug_HighMid ):( localAudioLinkData3_g481 ));
-			float mulTime29_g480 = _Time.y * ( HighMid11_g480 * temp_output_112_0_g480 );
-			float2 appendResult47_g480 = (float2(( cos( mulTime30_g480 ) * temp_output_113_0_g480 ) , ( sin( mulTime29_g480 ) * temp_output_113_0_g480 )));
-			float2 TransformedUV50_g480 = ( (i.uv_texcoord*temp_output_3_0_g485 + ( ( 1.0 - temp_output_3_0_g485 ) / 2.0 )) + ( appendResult39_g480 * saturate( ( Bass19_g480 - _LowShakeStart ) ) ) + appendResult47_g480 );
-			float mulTime123_g480 = _Time.y * 0.04;
-			float2 appendResult125_g480 = (float2(i.uv_texcoord.y , mulTime123_g480));
-			float dotResult4_g491 = dot( appendResult125_g480 , float2( 12.9898,78.233 ) );
-			float lerpResult10_g491 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g491 ) * 43758.55 ) ));
-			float2 appendResult130_g480 = (float2(( lerpResult10_g491 * High10_g480 * _HighGlitchIntensity ) , 0.0));
-			float2 temp_output_11_0_g495 = ( TransformedUV50_g480 + appendResult130_g480 );
-			float4 tex2DNode14_g495 = tex2D( _Logo, temp_output_11_0_g495 );
-			int Band3_g486 = 1;
-			int Delay3_g486 = 0;
-			float localAudioLinkData3_g486 = AudioLinkData3_g486( Band3_g486 , Delay3_g486 );
-			float LowMid67_g480 = (( _AudioLinkDebug )?( _Debug_LowMid ):( localAudioLinkData3_g486 ));
-			float temp_output_1_0_g495 = ( _LowMidChromaticIntensity * saturate( ( LowMid67_g480 - _LowMidChromaticStart ) ) );
-			float temp_output_3_0_g496 = ( 1.0 - ( temp_output_1_0_g495 / 2.0 ) );
-			float4 tex2DNode18_g495 = tex2D( _Logo, (temp_output_11_0_g495*temp_output_3_0_g496 + ( ( 1.0 - temp_output_3_0_g496 ) / 2.0 )) );
-			float temp_output_3_0_g497 = ( 1.0 - temp_output_1_0_g495 );
-			float4 tex2DNode19_g495 = tex2D( _Logo, (temp_output_11_0_g495*temp_output_3_0_g497 + ( ( 1.0 - temp_output_3_0_g497 ) / 2.0 )) );
-			float4 appendResult21_g495 = (float4(tex2DNode14_g495.r , tex2DNode18_g495.g , tex2DNode19_g495.b , saturate( ( tex2DNode14_g495.a + tex2DNode18_g495.a + tex2DNode19_g495.a ) )));
-			float4 temp_output_136_0_g480 = appendResult21_g495;
-			float temp_output_115_0_g480 = _Spectrograminnerradius;
-			float2 temp_output_114_0_g480 = _SpectrogramOrigin;
-			float temp_output_68_0_g480 = distance( temp_output_114_0_g480 , TransformedUV50_g480 );
-			float4 temp_output_2_0_g490 = _Spectogramoutercolor;
-			float2 normalizeResult54_g480 = normalize( ( TransformedUV50_g480 - temp_output_114_0_g480 ) );
-			float2 break55_g480 = normalizeResult54_g480;
-			float x1_g487 = ( ( ( atan2( abs( break55_g480.x ) , break55_g480.y ) + UNITY_PI ) % UNITY_PI ) / UNITY_PI );
-			float localMyCustomExpression1_g487 = MyCustomExpression1_g487( x1_g487 );
-			float ifLocalVar80_g480 = 0;
-			if( ( _Spectrogramouterradius * localMyCustomExpression1_g487 ) <= ( temp_output_68_0_g480 - temp_output_115_0_g480 ) )
-				ifLocalVar80_g480 = 0.0;
+			float dotResult4_g681 = dot( temp_cast_5 , float2( 12.9898,78.233 ) );
+			float lerpResult10_g681 = lerp( -temp_output_110_0_g678 , temp_output_110_0_g678 , frac( ( sin( dotResult4_g681 ) * 43758.55 ) ));
+			float mulTime23_g678 = _Time.y * 0.5;
+			float2 temp_cast_6 = (mulTime23_g678).xx;
+			float dotResult4_g682 = dot( temp_cast_6 , float2( 12.9898,78.233 ) );
+			float lerpResult10_g682 = lerp( -temp_output_110_0_g678 , temp_output_110_0_g678 , frac( ( sin( dotResult4_g682 ) * 43758.55 ) ));
+			float2 appendResult39_g678 = (float2(lerpResult10_g681 , lerpResult10_g682));
+			int Band3_g686 = 3;
+			int Delay3_g686 = 0;
+			float localAudioLinkData3_g686 = AudioLinkData3_g686( Band3_g686 , Delay3_g686 );
+			float High10_g678 = (( _AudioLinkDebug )?( _Debug_High ):( localAudioLinkData3_g686 ));
+			float temp_output_112_0_g678 = _MidHighShakeSpeed;
+			float mulTime30_g678 = _Time.y * ( High10_g678 * temp_output_112_0_g678 );
+			float temp_output_113_0_g678 = _MidHighShakeIntensity;
+			int Band3_g679 = 2;
+			int Delay3_g679 = 0;
+			float localAudioLinkData3_g679 = AudioLinkData3_g679( Band3_g679 , Delay3_g679 );
+			float HighMid11_g678 = (( _AudioLinkDebug )?( _Debug_HighMid ):( localAudioLinkData3_g679 ));
+			float mulTime29_g678 = _Time.y * ( HighMid11_g678 * temp_output_112_0_g678 );
+			float2 appendResult47_g678 = (float2(( cos( mulTime30_g678 ) * temp_output_113_0_g678 ) , ( sin( mulTime29_g678 ) * temp_output_113_0_g678 )));
+			float2 TransformedUV50_g678 = ( (i.uv_texcoord*temp_output_3_0_g683 + ( ( 1.0 - temp_output_3_0_g683 ) / 2.0 )) + ( appendResult39_g678 * saturate( ( Bass19_g678 - _LowShakeStart ) ) ) + appendResult47_g678 );
+			float temp_output_68_0_g678 = distance( temp_output_114_0_g678 , TransformedUV50_g678 );
+			float4 temp_output_2_0_g687 = _Spectogramoutercolor;
+			float2 normalizeResult54_g678 = normalize( ( TransformedUV50_g678 - temp_output_114_0_g678 ) );
+			float2 break55_g678 = normalizeResult54_g678;
+			float x1_g693 = ( ( ( atan2( abs( break55_g678.x ) , break55_g678.y ) + UNITY_PI ) % UNITY_PI ) / UNITY_PI );
+			float localMyCustomExpression1_g693 = MyCustomExpression1_g693( x1_g693 );
+			float ifLocalVar80_g678 = 0;
+			if( ( _Spectrogramouterradius * localMyCustomExpression1_g693 ) <= ( temp_output_68_0_g678 - temp_output_115_0_g678 ) )
+				ifLocalVar80_g678 = 0.0;
 			else
-				ifLocalVar80_g480 = 1.0;
-			float4 appendResult4_g488 = (float4(( (temp_output_2_0_g490).rgb * ifLocalVar80_g480 ) , ifLocalVar80_g480));
-			float4 temp_output_85_0_g480 = appendResult4_g488;
-			float4 ifLocalVar90_g480 = 0;
-			if( temp_output_115_0_g480 <= temp_output_68_0_g480 )
-				ifLocalVar90_g480 = temp_output_85_0_g480;
+				ifLocalVar80_g678 = 1.0;
+			float4 appendResult4_g685 = (float4(( (temp_output_2_0_g687).rgb * ifLocalVar80_g678 ) , ifLocalVar80_g678));
+			float4 temp_output_85_0_g678 = appendResult4_g685;
+			float4 ifLocalVar90_g678 = 0;
+			if( temp_output_115_0_g678 <= temp_output_68_0_g678 )
+				ifLocalVar90_g678 = temp_output_85_0_g678;
 			else
-				ifLocalVar90_g480 = _Spectograminnercolor;
-			float4 SpectogramColor92_g480 = ifLocalVar90_g480;
-			float4 temp_output_2_0_g493 = SpectogramColor92_g480;
-			float4 temp_output_2_0_g492 = temp_output_136_0_g480;
-			float4 lerpResult98_g480 = lerp( temp_output_136_0_g480 , SpectogramColor92_g480 , ( (temp_output_2_0_g493).a * ( 1.0 - (temp_output_2_0_g492).w ) ));
-			float4 temp_output_2_0_g182 = lerpResult98_g480;
-			float temp_output_191_6 = (temp_output_2_0_g182).a;
+				ifLocalVar90_g678 = _Spectograminnercolor;
+			float4 SpectogramColor92_g678 = ifLocalVar90_g678;
+			float mulTime123_g678 = _Time.y * 0.04;
+			float2 appendResult125_g678 = (float2(i.uv_texcoord.y , mulTime123_g678));
+			float dotResult4_g688 = dot( appendResult125_g678 , float2( 12.9898,78.233 ) );
+			float lerpResult10_g688 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g688 ) * 43758.55 ) ));
+			float2 appendResult130_g678 = (float2(( lerpResult10_g688 * High10_g678 * _HighGlitchIntensity ) , 0.0));
+			float2 temp_output_11_0_g689 = ( TransformedUV50_g678 + appendResult130_g678 );
+			int Band3_g684 = 1;
+			int Delay3_g684 = 0;
+			float localAudioLinkData3_g684 = AudioLinkData3_g684( Band3_g684 , Delay3_g684 );
+			float LowMid67_g678 = (( _AudioLinkDebug )?( _Debug_LowMid ):( localAudioLinkData3_g684 ));
+			float temp_output_1_0_g689 = ( _LowMidChromaticIntensity * saturate( ( LowMid67_g678 - _LowMidChromaticStart ) ) );
+			float temp_output_3_0_g690 = ( 1.0 - temp_output_1_0_g689 );
+			float4 tex2DNode14_g689 = tex2D( _Logo, (temp_output_11_0_g689*temp_output_3_0_g690 + ( ( 1.0 - temp_output_3_0_g690 ) / 2.0 )) );
+			float temp_output_3_0_g691 = ( 1.0 - ( temp_output_1_0_g689 / 2.0 ) );
+			float4 tex2DNode18_g689 = tex2D( _Logo, (temp_output_11_0_g689*temp_output_3_0_g691 + ( ( 1.0 - temp_output_3_0_g691 ) / 2.0 )) );
+			float4 tex2DNode19_g689 = tex2D( _Logo, temp_output_11_0_g689 );
+			float4 appendResult21_g689 = (float4(tex2DNode14_g689.r , tex2DNode18_g689.g , tex2DNode19_g689.b , ( ( tex2DNode14_g689.a + tex2DNode18_g689.a + tex2DNode19_g689.a ) / 3.0 )));
+			float4 temp_output_138_0_g678 = appendResult21_g689;
+			float4 temp_output_2_0_g692 = temp_output_138_0_g678;
+			float4 lerpResult98_g678 = lerp( SpectogramColor92_g678 , temp_output_138_0_g678 , (temp_output_2_0_g692).w);
+			float4 temp_output_2_0_g677 = lerpResult98_g678;
 			c.rgb = 0;
-			c.a = temp_output_191_6;
-			clip( temp_output_191_6 - _Cutoff );
+			c.a = 1;
+			clip( (temp_output_2_0_g677).w - _Cutoff );
 			return c;
 		}
 
@@ -202,78 +200,77 @@ Shader "MyroP/MusicVisualizer"
 		void surf( Input i , inout SurfaceOutputCustomLightingCustom o )
 		{
 			o.SurfInput = i;
-			int Band3_g482 = 0;
-			int Delay3_g482 = 0;
-			float localAudioLinkData3_g482 = AudioLinkData3_g482( Band3_g482 , Delay3_g482 );
-			float Bass19_g480 = (( _AudioLinkDebug )?( _Debug_Low ):( localAudioLinkData3_g482 ));
-			float temp_output_3_0_g485 = ( _LogoSize - ( Bass19_g480 * _LowZoomIntensity ) );
-			float temp_output_110_0_g480 = _LowShakeIntensity;
+			float temp_output_115_0_g678 = _Spectrograminnerradius;
+			float2 temp_output_114_0_g678 = _SpectrogramOrigin;
+			int Band3_g680 = 0;
+			int Delay3_g680 = 0;
+			float localAudioLinkData3_g680 = AudioLinkData3_g680( Band3_g680 , Delay3_g680 );
+			float Bass19_g678 = (( _AudioLinkDebug )?( _Debug_Low ):( localAudioLinkData3_g680 ));
+			float temp_output_3_0_g683 = ( _LogoSize - ( Bass19_g678 * _LowZoomIntensity ) );
+			float temp_output_110_0_g678 = _LowShakeIntensity;
 			float2 temp_cast_0 = (_Time.y).xx;
-			float dotResult4_g483 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
-			float lerpResult10_g483 = lerp( -temp_output_110_0_g480 , temp_output_110_0_g480 , frac( ( sin( dotResult4_g483 ) * 43758.55 ) ));
-			float mulTime23_g480 = _Time.y * 0.5;
-			float2 temp_cast_1 = (mulTime23_g480).xx;
-			float dotResult4_g484 = dot( temp_cast_1 , float2( 12.9898,78.233 ) );
-			float lerpResult10_g484 = lerp( -temp_output_110_0_g480 , temp_output_110_0_g480 , frac( ( sin( dotResult4_g484 ) * 43758.55 ) ));
-			float2 appendResult39_g480 = (float2(lerpResult10_g483 , lerpResult10_g484));
-			int Band3_g489 = 3;
-			int Delay3_g489 = 0;
-			float localAudioLinkData3_g489 = AudioLinkData3_g489( Band3_g489 , Delay3_g489 );
-			float High10_g480 = (( _AudioLinkDebug )?( _Debug_High ):( localAudioLinkData3_g489 ));
-			float temp_output_112_0_g480 = _MidHighShakeSpeed;
-			float mulTime30_g480 = _Time.y * ( High10_g480 * temp_output_112_0_g480 );
-			float temp_output_113_0_g480 = _MidHighShakeIntensity;
-			int Band3_g481 = 2;
-			int Delay3_g481 = 0;
-			float localAudioLinkData3_g481 = AudioLinkData3_g481( Band3_g481 , Delay3_g481 );
-			float HighMid11_g480 = (( _AudioLinkDebug )?( _Debug_HighMid ):( localAudioLinkData3_g481 ));
-			float mulTime29_g480 = _Time.y * ( HighMid11_g480 * temp_output_112_0_g480 );
-			float2 appendResult47_g480 = (float2(( cos( mulTime30_g480 ) * temp_output_113_0_g480 ) , ( sin( mulTime29_g480 ) * temp_output_113_0_g480 )));
-			float2 TransformedUV50_g480 = ( (i.uv_texcoord*temp_output_3_0_g485 + ( ( 1.0 - temp_output_3_0_g485 ) / 2.0 )) + ( appendResult39_g480 * saturate( ( Bass19_g480 - _LowShakeStart ) ) ) + appendResult47_g480 );
-			float mulTime123_g480 = _Time.y * 0.04;
-			float2 appendResult125_g480 = (float2(i.uv_texcoord.y , mulTime123_g480));
-			float dotResult4_g491 = dot( appendResult125_g480 , float2( 12.9898,78.233 ) );
-			float lerpResult10_g491 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g491 ) * 43758.55 ) ));
-			float2 appendResult130_g480 = (float2(( lerpResult10_g491 * High10_g480 * _HighGlitchIntensity ) , 0.0));
-			float2 temp_output_11_0_g495 = ( TransformedUV50_g480 + appendResult130_g480 );
-			float4 tex2DNode14_g495 = tex2D( _Logo, temp_output_11_0_g495 );
-			int Band3_g486 = 1;
-			int Delay3_g486 = 0;
-			float localAudioLinkData3_g486 = AudioLinkData3_g486( Band3_g486 , Delay3_g486 );
-			float LowMid67_g480 = (( _AudioLinkDebug )?( _Debug_LowMid ):( localAudioLinkData3_g486 ));
-			float temp_output_1_0_g495 = ( _LowMidChromaticIntensity * saturate( ( LowMid67_g480 - _LowMidChromaticStart ) ) );
-			float temp_output_3_0_g496 = ( 1.0 - ( temp_output_1_0_g495 / 2.0 ) );
-			float4 tex2DNode18_g495 = tex2D( _Logo, (temp_output_11_0_g495*temp_output_3_0_g496 + ( ( 1.0 - temp_output_3_0_g496 ) / 2.0 )) );
-			float temp_output_3_0_g497 = ( 1.0 - temp_output_1_0_g495 );
-			float4 tex2DNode19_g495 = tex2D( _Logo, (temp_output_11_0_g495*temp_output_3_0_g497 + ( ( 1.0 - temp_output_3_0_g497 ) / 2.0 )) );
-			float4 appendResult21_g495 = (float4(tex2DNode14_g495.r , tex2DNode18_g495.g , tex2DNode19_g495.b , saturate( ( tex2DNode14_g495.a + tex2DNode18_g495.a + tex2DNode19_g495.a ) )));
-			float4 temp_output_136_0_g480 = appendResult21_g495;
-			float temp_output_115_0_g480 = _Spectrograminnerradius;
-			float2 temp_output_114_0_g480 = _SpectrogramOrigin;
-			float temp_output_68_0_g480 = distance( temp_output_114_0_g480 , TransformedUV50_g480 );
-			float4 temp_output_2_0_g490 = _Spectogramoutercolor;
-			float2 normalizeResult54_g480 = normalize( ( TransformedUV50_g480 - temp_output_114_0_g480 ) );
-			float2 break55_g480 = normalizeResult54_g480;
-			float x1_g487 = ( ( ( atan2( abs( break55_g480.x ) , break55_g480.y ) + UNITY_PI ) % UNITY_PI ) / UNITY_PI );
-			float localMyCustomExpression1_g487 = MyCustomExpression1_g487( x1_g487 );
-			float ifLocalVar80_g480 = 0;
-			if( ( _Spectrogramouterradius * localMyCustomExpression1_g487 ) <= ( temp_output_68_0_g480 - temp_output_115_0_g480 ) )
-				ifLocalVar80_g480 = 0.0;
+			float dotResult4_g681 = dot( temp_cast_0 , float2( 12.9898,78.233 ) );
+			float lerpResult10_g681 = lerp( -temp_output_110_0_g678 , temp_output_110_0_g678 , frac( ( sin( dotResult4_g681 ) * 43758.55 ) ));
+			float mulTime23_g678 = _Time.y * 0.5;
+			float2 temp_cast_1 = (mulTime23_g678).xx;
+			float dotResult4_g682 = dot( temp_cast_1 , float2( 12.9898,78.233 ) );
+			float lerpResult10_g682 = lerp( -temp_output_110_0_g678 , temp_output_110_0_g678 , frac( ( sin( dotResult4_g682 ) * 43758.55 ) ));
+			float2 appendResult39_g678 = (float2(lerpResult10_g681 , lerpResult10_g682));
+			int Band3_g686 = 3;
+			int Delay3_g686 = 0;
+			float localAudioLinkData3_g686 = AudioLinkData3_g686( Band3_g686 , Delay3_g686 );
+			float High10_g678 = (( _AudioLinkDebug )?( _Debug_High ):( localAudioLinkData3_g686 ));
+			float temp_output_112_0_g678 = _MidHighShakeSpeed;
+			float mulTime30_g678 = _Time.y * ( High10_g678 * temp_output_112_0_g678 );
+			float temp_output_113_0_g678 = _MidHighShakeIntensity;
+			int Band3_g679 = 2;
+			int Delay3_g679 = 0;
+			float localAudioLinkData3_g679 = AudioLinkData3_g679( Band3_g679 , Delay3_g679 );
+			float HighMid11_g678 = (( _AudioLinkDebug )?( _Debug_HighMid ):( localAudioLinkData3_g679 ));
+			float mulTime29_g678 = _Time.y * ( HighMid11_g678 * temp_output_112_0_g678 );
+			float2 appendResult47_g678 = (float2(( cos( mulTime30_g678 ) * temp_output_113_0_g678 ) , ( sin( mulTime29_g678 ) * temp_output_113_0_g678 )));
+			float2 TransformedUV50_g678 = ( (i.uv_texcoord*temp_output_3_0_g683 + ( ( 1.0 - temp_output_3_0_g683 ) / 2.0 )) + ( appendResult39_g678 * saturate( ( Bass19_g678 - _LowShakeStart ) ) ) + appendResult47_g678 );
+			float temp_output_68_0_g678 = distance( temp_output_114_0_g678 , TransformedUV50_g678 );
+			float4 temp_output_2_0_g687 = _Spectogramoutercolor;
+			float2 normalizeResult54_g678 = normalize( ( TransformedUV50_g678 - temp_output_114_0_g678 ) );
+			float2 break55_g678 = normalizeResult54_g678;
+			float x1_g693 = ( ( ( atan2( abs( break55_g678.x ) , break55_g678.y ) + UNITY_PI ) % UNITY_PI ) / UNITY_PI );
+			float localMyCustomExpression1_g693 = MyCustomExpression1_g693( x1_g693 );
+			float ifLocalVar80_g678 = 0;
+			if( ( _Spectrogramouterradius * localMyCustomExpression1_g693 ) <= ( temp_output_68_0_g678 - temp_output_115_0_g678 ) )
+				ifLocalVar80_g678 = 0.0;
 			else
-				ifLocalVar80_g480 = 1.0;
-			float4 appendResult4_g488 = (float4(( (temp_output_2_0_g490).rgb * ifLocalVar80_g480 ) , ifLocalVar80_g480));
-			float4 temp_output_85_0_g480 = appendResult4_g488;
-			float4 ifLocalVar90_g480 = 0;
-			if( temp_output_115_0_g480 <= temp_output_68_0_g480 )
-				ifLocalVar90_g480 = temp_output_85_0_g480;
+				ifLocalVar80_g678 = 1.0;
+			float4 appendResult4_g685 = (float4(( (temp_output_2_0_g687).rgb * ifLocalVar80_g678 ) , ifLocalVar80_g678));
+			float4 temp_output_85_0_g678 = appendResult4_g685;
+			float4 ifLocalVar90_g678 = 0;
+			if( temp_output_115_0_g678 <= temp_output_68_0_g678 )
+				ifLocalVar90_g678 = temp_output_85_0_g678;
 			else
-				ifLocalVar90_g480 = _Spectograminnercolor;
-			float4 SpectogramColor92_g480 = ifLocalVar90_g480;
-			float4 temp_output_2_0_g493 = SpectogramColor92_g480;
-			float4 temp_output_2_0_g492 = temp_output_136_0_g480;
-			float4 lerpResult98_g480 = lerp( temp_output_136_0_g480 , SpectogramColor92_g480 , ( (temp_output_2_0_g493).a * ( 1.0 - (temp_output_2_0_g492).w ) ));
-			float4 temp_output_2_0_g182 = lerpResult98_g480;
-			o.Emission = (temp_output_2_0_g182).rgb;
+				ifLocalVar90_g678 = _Spectograminnercolor;
+			float4 SpectogramColor92_g678 = ifLocalVar90_g678;
+			float mulTime123_g678 = _Time.y * 0.04;
+			float2 appendResult125_g678 = (float2(i.uv_texcoord.y , mulTime123_g678));
+			float dotResult4_g688 = dot( appendResult125_g678 , float2( 12.9898,78.233 ) );
+			float lerpResult10_g688 = lerp( -1.0 , 1.0 , frac( ( sin( dotResult4_g688 ) * 43758.55 ) ));
+			float2 appendResult130_g678 = (float2(( lerpResult10_g688 * High10_g678 * _HighGlitchIntensity ) , 0.0));
+			float2 temp_output_11_0_g689 = ( TransformedUV50_g678 + appendResult130_g678 );
+			int Band3_g684 = 1;
+			int Delay3_g684 = 0;
+			float localAudioLinkData3_g684 = AudioLinkData3_g684( Band3_g684 , Delay3_g684 );
+			float LowMid67_g678 = (( _AudioLinkDebug )?( _Debug_LowMid ):( localAudioLinkData3_g684 ));
+			float temp_output_1_0_g689 = ( _LowMidChromaticIntensity * saturate( ( LowMid67_g678 - _LowMidChromaticStart ) ) );
+			float temp_output_3_0_g690 = ( 1.0 - temp_output_1_0_g689 );
+			float4 tex2DNode14_g689 = tex2D( _Logo, (temp_output_11_0_g689*temp_output_3_0_g690 + ( ( 1.0 - temp_output_3_0_g690 ) / 2.0 )) );
+			float temp_output_3_0_g691 = ( 1.0 - ( temp_output_1_0_g689 / 2.0 ) );
+			float4 tex2DNode18_g689 = tex2D( _Logo, (temp_output_11_0_g689*temp_output_3_0_g691 + ( ( 1.0 - temp_output_3_0_g691 ) / 2.0 )) );
+			float4 tex2DNode19_g689 = tex2D( _Logo, temp_output_11_0_g689 );
+			float4 appendResult21_g689 = (float4(tex2DNode14_g689.r , tex2DNode18_g689.g , tex2DNode19_g689.b , ( ( tex2DNode14_g689.a + tex2DNode18_g689.a + tex2DNode19_g689.a ) / 3.0 )));
+			float4 temp_output_138_0_g678 = appendResult21_g689;
+			float4 temp_output_2_0_g692 = temp_output_138_0_g678;
+			float4 lerpResult98_g678 = lerp( SpectogramColor92_g678 , temp_output_138_0_g678 , (temp_output_2_0_g692).w);
+			float4 temp_output_2_0_g677 = lerpResult98_g678;
+			o.Emission = (temp_output_2_0_g677).xyz;
 		}
 
 		ENDCG
@@ -300,7 +297,6 @@ Shader "MyroP/MusicVisualizer"
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "UnityPBSLighting.cginc"
-			sampler3D _DitherMaskLOD;
 			struct v2f
 			{
 				V2F_SHADOW_CASTER;
@@ -346,8 +342,6 @@ Shader "MyroP/MusicVisualizer"
 				#if defined( CAN_SKIP_VPOS )
 				float2 vpos = IN.pos;
 				#endif
-				half alphaRef = tex3D( _DitherMaskLOD, float3( vpos.xy * 0.25, o.Alpha * 0.9375 ) ).a;
-				clip( alphaRef - 0.01 );
 				SHADOW_CASTER_FRAGMENT( IN )
 			}
 			ENDCG
@@ -362,7 +356,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;40;960,112;Inherit;False;Property;_LowS
 Node;AmplifyShaderEditor.RangedFloatNode;56;960,192;Inherit;False;Property;_LowShakeIntensity;Low Shake Intensity;10;0;Create;True;0;0;0;False;0;False;0;0.025;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;31;960,272;Inherit;False;Property;_LowZoomIntensity;Low Zoom Intensity;8;0;Create;True;0;0;0;False;0;False;1;0.417;0;2;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;75;960,352;Inherit;False;Property;_LowMidChromaticStart;LowMid Chromatic Start;11;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;74;960,432;Inherit;False;Property;_LowMidChromaticIntensity;LowMid Chromatic Intensity;12;0;Create;True;0;0;0;False;0;False;0;0.063;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;74;960,432;Inherit;False;Property;_LowMidChromaticIntensity;LowMid Chromatic Intensity;12;0;Create;True;0;0;0;False;0;False;0;0.168;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.Vector2Node;114;1024,720;Inherit;False;Property;_SpectrogramOrigin;Spectrogram Origin ;18;0;Create;True;0;0;0;False;0;False;0.5,0.5;0.5,0.475;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
 Node;AmplifyShaderEditor.RangedFloatNode;127;928,832;Inherit;False;Property;_Spectrograminnerradius;Spectrogram inner radius;16;0;Create;True;0;0;0;False;0;False;0;0.263;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;129;928,1088;Inherit;False;Property;_Spectrogramouterradius;Spectrogram outer radius;17;0;Create;True;0;0;0;False;0;False;0.09176044;0.6678309;0;1;0;1;FLOAT;0
@@ -371,39 +365,38 @@ Node;AmplifyShaderEditor.RangedFloatNode;4;1392,1120;Inherit;False;Property;_Deb
 Node;AmplifyShaderEditor.RangedFloatNode;3;1392,1200;Inherit;False;Property;_Debug_LowMid;Debug_LowMid;22;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;2;1392,1280;Inherit;False;Property;_Debug_Low;Debug_Low;21;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;27;960,32;Inherit;False;Property;_LogoSize;Logo Size;7;0;Create;True;0;0;0;False;0;False;2.06;1.82;0;5;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;104;960,528;Inherit;False;Property;_MidHighShakeIntensity;MidHigh Shake Intensity;15;0;Create;True;0;0;0;False;0;False;1;0.005;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;104;960,528;Inherit;False;Property;_MidHighShakeIntensity;MidHigh Shake Intensity;15;0;Create;True;0;0;0;False;0;False;1;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TextureCoordinatesNode;193;1296,-240;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;98;960,592;Inherit;False;Property;_MidHighShakeSpeed;MidHigh Shake Speed;13;0;Create;True;0;0;0;False;0;False;0;1;0;100;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;196;960,656;Inherit;False;Property;_HighGlitchIntensity;High Glitch Intensity;14;0;Create;True;0;0;0;False;0;False;0;0.1;0;0.1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.TexturePropertyNode;1;1248,-64;Inherit;True;Property;_Logo;Logo;6;0;Create;True;0;0;0;False;0;False;7682a0d099898344a95aea6c5677b45f;7682a0d099898344a95aea6c5677b45f;False;black;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
-Node;AmplifyShaderEditor.ColorNode;150;960,896;Inherit;False;Property;_Spectograminnercolor;Spectogram inner color;20;1;[HDR];Create;True;0;0;0;False;0;False;1,1,1,1;0.981132,0.981132,0.981132,1;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
+Node;AmplifyShaderEditor.RangedFloatNode;196;960,656;Inherit;False;Property;_HighGlitchIntensity;High Glitch Intensity;14;0;Create;True;0;0;0;False;0;False;0;0.0163;0;0.1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TexturePropertyNode;1;1248,-64;Inherit;True;Property;_Logo;Logo;6;0;Create;True;0;0;0;False;0;False;None;62f36c08f92a3c64ba09a34c409ad3fe;False;black;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.ColorNode;150;960,896;Inherit;False;Property;_Spectograminnercolor;Spectogram inner color;20;1;[HDR];Create;True;0;0;0;False;0;False;1,1,1,1;0,0,0,0;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.ColorNode;136;960,1168;Inherit;False;Property;_Spectogramoutercolor;Spectogram outer color;19;1;[HDR];Create;True;0;0;0;False;0;False;0,0,0,0;1,1,1,1;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
-Node;AmplifyShaderEditor.FunctionNode;216;1568,336;Inherit;False;M_MusicVisualizer;0;;480;aae0baf1667c3fa44bf9aa9beb3c4b54;0;20;120;FLOAT2;0,0;False;105;SAMPLER2D;0;False;103;FLOAT;0;False;111;FLOAT;0;False;110;FLOAT;0;False;104;FLOAT;0;False;101;FLOAT;0;False;102;FLOAT;0;False;113;FLOAT;0;False;112;FLOAT;0;False;129;FLOAT;0;False;114;FLOAT2;0,0;False;115;FLOAT;0;False;119;COLOR;0,0,0,0;False;116;FLOAT;0;False;117;COLOR;0,0,0,0;False;106;FLOAT;0;False;107;FLOAT;0;False;108;FLOAT;0;False;109;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;191;1984,336;Inherit;False;Alpha Split;-1;;182;07dab7960105b86429ac8eebd729ed6d;0;1;2;COLOR;0,0,0,0;False;2;FLOAT3;0;FLOAT;6
+Node;AmplifyShaderEditor.FunctionNode;227;1568,336;Inherit;False;M_MusicVisualizer;0;;678;aae0baf1667c3fa44bf9aa9beb3c4b54;0;20;120;FLOAT2;0,0;False;105;SAMPLER2D;0;False;103;FLOAT;0;False;111;FLOAT;0;False;110;FLOAT;0;False;104;FLOAT;0;False;101;FLOAT;0;False;102;FLOAT;0;False;113;FLOAT;0;False;112;FLOAT;0;False;129;FLOAT;0;False;114;FLOAT2;0,0;False;115;FLOAT;0;False;119;COLOR;0,0,0,0;False;116;FLOAT;0;False;117;COLOR;0,0,0,0;False;106;FLOAT;0;False;107;FLOAT;0;False;108;FLOAT;0;False;109;FLOAT;0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.FunctionNode;191;1984,336;Inherit;False;Alpha Split;-1;;677;07dab7960105b86429ac8eebd729ed6d;0;1;2;FLOAT4;0,0,0,0;False;2;FLOAT3;0;FLOAT;6
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;2304,224;Float;False;True;-1;3;AmplifyShaderEditor.MaterialInspector;0;0;CustomLighting;MyroP/MusicVisualizer;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;Back;0;False;;0;False;;False;0;False;;0;False;;False;0;Custom;0.5;True;True;0;True;TransparentCutout;;Geometry;All;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;2;15;10;25;False;0.5;True;0;5;False;;10;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;True;Absolute;0;;5;-1;-1;-1;0;False;0;0;False;;-1;0;False;;0;0;0;False;0.1;False;;0;False;;False;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;16;FLOAT4;0,0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
-WireConnection;216;120;193;0
-WireConnection;216;105;1;0
-WireConnection;216;103;27;0
-WireConnection;216;111;40;0
-WireConnection;216;110;56;0
-WireConnection;216;104;31;0
-WireConnection;216;101;75;0
-WireConnection;216;102;74;0
-WireConnection;216;113;104;0
-WireConnection;216;112;98;0
-WireConnection;216;129;196;0
-WireConnection;216;114;114;0
-WireConnection;216;115;127;0
-WireConnection;216;119;150;0
-WireConnection;216;116;129;0
-WireConnection;216;117;136;0
-WireConnection;216;106;2;0
-WireConnection;216;107;3;0
-WireConnection;216;108;4;0
-WireConnection;216;109;5;0
-WireConnection;191;2;216;0
+WireConnection;227;120;193;0
+WireConnection;227;105;1;0
+WireConnection;227;103;27;0
+WireConnection;227;111;40;0
+WireConnection;227;110;56;0
+WireConnection;227;104;31;0
+WireConnection;227;101;75;0
+WireConnection;227;102;74;0
+WireConnection;227;113;104;0
+WireConnection;227;112;98;0
+WireConnection;227;129;196;0
+WireConnection;227;114;114;0
+WireConnection;227;115;127;0
+WireConnection;227;119;150;0
+WireConnection;227;116;129;0
+WireConnection;227;117;136;0
+WireConnection;227;106;2;0
+WireConnection;227;107;3;0
+WireConnection;227;108;4;0
+WireConnection;227;109;5;0
+WireConnection;191;2;227;0
 WireConnection;0;2;191;0
-WireConnection;0;9;191;6
 WireConnection;0;10;191;6
 ASEEND*/
-//CHKSM=9EE8FA63EAF228BAA05E66DE52BBFFEBD6FD264C
+//CHKSM=E7507389478BFC7017F679FB656514A724D02FB1
