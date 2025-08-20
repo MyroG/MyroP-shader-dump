@@ -48,7 +48,7 @@ Those settings affect the audio spectogram rendered behing the logo
 
 ## Are you a shader creator?
 
-- Use the "M_Music Visualizer" function to add that visualizer in your own shader!
+- Use the "M_Music Visualizer" function to add that visualizer in your own shader! The shader is located in the ASEFunctions folder at the root of this repository.
 
 ![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/MusicVisualizer/Doc/funct.png)
 
