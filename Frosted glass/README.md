@@ -3,7 +3,7 @@
 A simple frosted glass shader for the Built-in render pipeline, entirely made with the Amplify Shader Editor, the interesting feature about this shader is that it uses the scene's environment reflection to fake transparency : The shader is fully opaque and doesn't use a grab pass for the blur effect. The example folder contains a scene with a bunch of example materials.
 The shader works on VRChat and can be used on PC avatars also.
 
-![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/Frosted glass/Examples/example.gif)
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/Frosted%20glass/Examples/example.gif)
 
 ## Settings
 
