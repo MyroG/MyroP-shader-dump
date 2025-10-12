@@ -24,6 +24,7 @@ Shader "MyroP/FrostedGlass"
 		_TransparencyFresnelScale("Transparency Fresnel Scale", Float) = 1
 		_TransparencyFresnelPower("Transparency Fresnel Power", Float) = 2
 		_Fallbackcubemap("Fallback cubemap", CUBE) = "white" {}
+		_Forcefallback("Force fallback", Range( 0 , 1)) = 0
 		[Enum(UnityEngine.Rendering.CullMode)]_Culling("Culling", Float) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
@@ -80,6 +81,7 @@ Shader "MyroP/FrostedGlass"
 		uniform sampler2D _BlurMask;
 		uniform float4 _BlurMask_ST;
 		uniform samplerCUBE _Fallbackcubemap;
+		uniform float _Forcefallback;
 		uniform sampler2D _Occlusion;
 		uniform float4 _Occlusion_ST;
 		uniform sampler2D _Emission;
@@ -89,7 +91,7 @@ Shader "MyroP/FrostedGlass"
 		uniform float _Smoothness;
 
 
-		float3 Reflectionprobesampler1( float3 viewDir, float3 normal, float IOR, float Mipmap, samplerCUBE fallbackCube, float3 worldPos )
+		float3 Reflectionprobesampler1( float3 viewDir, float3 normal, float IOR, float Mipmap, samplerCUBE fallbackCube, float3 worldPos, float forceFallback )
 		{
 			float3 dir = refract(-normalize(viewDir), normalize(normal), IOR);
 			#ifdef UNITY_SPECCUBE_BOX_PROJECTION
@@ -103,16 +105,17 @@ Shader "MyroP/FrostedGlass"
 			#endif
 			float4 rawProbe = UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, dir, Mipmap);
 			bool noProbe = (dot(rawProbe.rgb, rawProbe.rgb) + rawProbe.a) < 0.01; //fallback probe, not box projected
+			float3 fallback = texCUBElod(fallbackCube, float4(dir, Mipmap)).rgb;
 			if (noProbe)
 			{
-			    return texCUBElod(fallbackCube, float4(dir, Mipmap)).rgb;
+			    return fallback;
 			}
 			else
 			{
 			    float4 col = rawProbe;
 			    col.rgb = DecodeHDR(col, unity_SpecCube0_HDR);
 			    float3 probeRGB = col.rgb;
-			    return probeRGB;
+			    return lerp(probeRGB, fallback, forceFallback);
 			}
 		}
 
@@ -151,7 +154,8 @@ Shader "MyroP/FrostedGlass"
 			samplerCUBE fallbackCube1 = _Fallbackcubemap;
 			float4 transform74 = mul(unity_ObjectToWorld,float4( 0,0,0,1 ));
 			float3 worldPos1 = transform74.xyz;
-			float3 localReflectionprobesampler1 = Reflectionprobesampler1( viewDir1 , normal1 , IOR1 , Mipmap1 , fallbackCube1 , worldPos1 );
+			float forceFallback1 = _Forcefallback;
+			float3 localReflectionprobesampler1 = Reflectionprobesampler1( viewDir1 , normal1 , IOR1 , Mipmap1 , fallbackCube1 , worldPos1 , forceFallback1 );
 			float3 FakeTransparency67 = localReflectionprobesampler1;
 			float2 uv_Occlusion = i.uv_texcoord * _Occlusion_ST.xy + _Occlusion_ST.zw;
 			float4 tex2DNode34 = tex2D( _Occlusion, uv_Occlusion );
@@ -262,7 +266,7 @@ Node;AmplifyShaderEditor.SwitchByFaceNode;63;-1552,1024;Inherit;False;2;0;FLOAT3
 Node;AmplifyShaderEditor.RangedFloatNode;19;-1744,1216;Inherit;False;Property;_TransparencyFresnelBias;Transparency Fresnel Bias;16;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;20;-1744,1296;Inherit;False;Property;_TransparencyFresnelScale;Transparency Fresnel Scale;17;0;Create;True;0;0;0;False;0;False;1;1.39;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;21;-1744,1376;Inherit;False;Property;_TransparencyFresnelPower;Transparency Fresnel Power;18;0;Create;True;0;0;0;False;0;False;2;2.26;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.CommentaryNode;64;-2192,-48;Inherit;False;1596.925;878.7267;Comment;15;67;1;6;38;40;73;59;72;8;39;60;9;31;68;74;Fake transparency, sampling the reflection probe;1,1,1,1;0;0
+Node;AmplifyShaderEditor.CommentaryNode;64;-2192,-48;Inherit;False;1596.925;878.7267;Comment;16;67;1;6;38;40;73;59;72;8;39;60;9;31;68;74;83;Fake transparency, sampling the reflection probe;1,1,1,1;0;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;65;-1952,-512;Inherit;False;NormalFinal;-1;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.FresnelNode;18;-1328,1024;Inherit;True;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;68;-2160,160;Inherit;False;65;NormalFinal;1;0;OBJECT;;False;1;FLOAT3;0
@@ -273,8 +277,8 @@ Node;AmplifyShaderEditor.SamplerNode;39;-2080,384;Inherit;True;Property;_Refract
 Node;AmplifyShaderEditor.RangedFloatNode;8;-2080,304;Inherit;False;Property;_Refraction;Refraction;14;0;Create;True;0;0;0;False;0;False;0.792;0.8;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.StaticSwitch;80;-704,1328;Inherit;False;Property;_Fresnel;Fresnel;15;0;Create;True;0;0;0;False;0;False;0;1;1;True;;Toggle;2;Key0;Key1;Create;True;True;All;9;1;FLOAT;0;False;0;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SamplerNode;72;-1664,432;Inherit;True;Property;_BlurMask;Blur Mask;11;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
-Node;AmplifyShaderEditor.RangedFloatNode;9;-1600,352;Inherit;False;Property;_Blur;Blur;12;0;Create;True;0;0;0;False;0;False;0;0;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.NegateNode;60;-1776,224;Inherit;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.RangedFloatNode;9;-1600,352;Inherit;False;Property;_Blur;Blur;12;0;Create;True;0;0;0;False;0;False;0;0;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.CommentaryNode;79;-1170,-1170;Inherit;False;915.3218;1054;Glass Color;9;77;25;55;15;13;54;24;56;32;Glass Color;1,1,1,1;0;0
 Node;AmplifyShaderEditor.SwitchByFaceNode;59;-1616,160;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;73;-1328,352;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
@@ -283,13 +287,14 @@ Node;AmplifyShaderEditor.TexturePropertyNode;38;-1392,624;Inherit;True;Property;
 Node;AmplifyShaderEditor.ViewDirInputsCoordNode;6;-1616,16;Inherit;False;World;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.ObjectToWorldTransfNode;74;-1136,336;Inherit;False;1;0;FLOAT4;0,0,0,1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RegisterLocalVarNode;22;-448,1328;Inherit;False;Transparency Fresnel;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;83;-1504,256;Inherit;False;Property;_Forcefallback;Force fallback;20;0;Create;True;0;0;0;False;0;False;0;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ColorNode;15;-1072,-400;Inherit;False;Property;_Colorouter;Color outer;3;1;[HDR];Create;True;0;0;0;False;0;False;0,0.772549,0.9215686,1;0.7471075,0.9371457,0.9716981,1;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.SamplerNode;32;-1136,-912;Inherit;True;Property;_MainTexture;Main Texture;0;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.RangedFloatNode;54;-1136,-704;Inherit;False;Property;_MainTextureintensity;Main Texture intensity;1;0;Create;True;0;0;0;False;0;False;1;0.205;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;24;-1104,-192;Inherit;False;22;Transparency Fresnel;1;0;OBJECT;;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ColorNode;13;-1072,-608;Inherit;False;Property;_Colorinner;Color inner;2;1;[HDR];Create;True;0;0;0;False;0;False;0.3254902,0.8862745,1,1;0.5896226,0.7730856,1,1;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.ColorNode;56;-1136,-1120;Inherit;False;Constant;_White;White;17;0;Create;True;0;0;0;False;0;False;1,1,1,0;0,0,0,0;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
-Node;AmplifyShaderEditor.CustomExpressionNode;1;-1104,16;Inherit;False;float3 dir = refract(-normalize(viewDir), normalize(normal), IOR)@$$#ifdef UNITY_SPECCUBE_BOX_PROJECTION$    dir = BoxProjectedCubemapDirection($        dir,$        worldPos,$        unity_SpecCube0_ProbePosition,$        unity_SpecCube0_BoxMin,$        unity_SpecCube0_BoxMax$    )@$#endif$$float4 rawProbe = UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, dir, Mipmap)@$bool noProbe = (dot(rawProbe.rgb, rawProbe.rgb) + rawProbe.a) < 0.01@ //fallback probe, not box projected$$if (noProbe)${$    return texCUBElod(fallbackCube, float4(dir, Mipmap)).rgb@$}$else${$    float4 col = rawProbe@$    col.rgb = DecodeHDR(col, unity_SpecCube0_HDR)@$    float3 probeRGB = col.rgb@$    return probeRGB@$};3;Create;6;True;viewDir;FLOAT3;0,0,0;In;;Inherit;False;True;normal;FLOAT3;0,0,0;In;;Inherit;False;True;IOR;FLOAT;1;In;;Inherit;False;True;Mipmap;FLOAT;0;In;;Inherit;False;True;fallbackCube;SAMPLERCUBE;;In;;Inherit;False;True;worldPos;FLOAT3;0,0,0;In;;Inherit;False;Reflection probe sampler;True;False;0;;False;6;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;SAMPLERCUBE;;False;5;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.CustomExpressionNode;1;-1104,16;Inherit;False;float3 dir = refract(-normalize(viewDir), normalize(normal), IOR)@$$#ifdef UNITY_SPECCUBE_BOX_PROJECTION$    dir = BoxProjectedCubemapDirection($        dir,$        worldPos,$        unity_SpecCube0_ProbePosition,$        unity_SpecCube0_BoxMin,$        unity_SpecCube0_BoxMax$    )@$#endif$$float4 rawProbe = UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, dir, Mipmap)@$bool noProbe = (dot(rawProbe.rgb, rawProbe.rgb) + rawProbe.a) < 0.01@ //fallback probe, not box projected$$float3 fallback = texCUBElod(fallbackCube, float4(dir, Mipmap)).rgb@$$if (noProbe)${$    return fallback@$}$else${$    float4 col = rawProbe@$    col.rgb = DecodeHDR(col, unity_SpecCube0_HDR)@$    float3 probeRGB = col.rgb@$    return lerp(probeRGB, fallback, forceFallback)@$};3;Create;7;True;viewDir;FLOAT3;0,0,0;In;;Inherit;False;True;normal;FLOAT3;0,0,0;In;;Inherit;False;True;IOR;FLOAT;1;In;;Inherit;False;True;Mipmap;FLOAT;0;In;;Inherit;False;True;fallbackCube;SAMPLERCUBE;;In;;Inherit;False;True;worldPos;FLOAT3;0,0,0;In;;Inherit;False;True;forceFallback;FLOAT;0;In;;Inherit;False;Reflection probe sampler;True;False;0;;False;7;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;SAMPLERCUBE;;False;5;FLOAT3;0,0,0;False;6;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;67;-832,16;Inherit;False;FakeTransparency;-1;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.LerpOp;25;-752,-576;Inherit;False;3;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.LerpOp;55;-752,-864;Inherit;False;3;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;1;FLOAT3;0
@@ -306,7 +311,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;47;416,128;Inherit;False;Property;_Smoo
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;58;400,0;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;76;272,-336;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.GetLocalVarNode;66;496,-80;Inherit;False;65;NormalFinal;1;0;OBJECT;;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.RangedFloatNode;82;368,592;Inherit;False;Property;_Culling;Culling;20;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.CullMode;True;0;False;0;2;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;82;368,592;Inherit;False;Property;_Culling;Culling;21;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.CullMode;True;0;False;0;2;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;720,32;Float;False;True;-1;4;AmplifyShaderEditor.MaterialInspector;0;0;StandardSpecular;MyroP/FrostedGlass;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;Off;0;False;;0;False;;False;0;False;;0;False;;False;0;Opaque;0.5;True;True;0;False;Opaque;;Geometry;All;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;2;15;10;25;False;0.5;True;0;0;False;;0;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;True;Relative;0;;-1;-1;-1;-1;0;False;0;0;True;_Cull;-1;0;False;;1;Include;UnityCG.cginc;False;;Custom;False;0;0;;0;0;False;0.1;False;;0;False;;False;17;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;16;FLOAT4;0,0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;62;0;61;0
 WireConnection;29;5;41;0
@@ -335,6 +340,7 @@ WireConnection;1;2;40;0
 WireConnection;1;3;73;0
 WireConnection;1;4;38;0
 WireConnection;1;5;74;0
+WireConnection;1;6;83;0
 WireConnection;67;0;1;0
 WireConnection;25;0;13;5
 WireConnection;25;1;15;5
@@ -359,4 +365,4 @@ WireConnection;0;3;76;0
 WireConnection;0;4;47;0
 WireConnection;0;5;34;2
 ASEEND*/
-//CHKSM=37A5EA33192F1D2E3C07CB6A619367CDE09B71E0
+//CHKSM=D3ECCB0F5C4BDC20BE5E45EF7E4879BCF7CBBBBC
