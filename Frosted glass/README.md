@@ -35,7 +35,7 @@ Those properties support HDR values, but for regular glass you want to keep the 
 
 - **Refraction mask** : An additional mask texture you can set to make certain parts of the mesh refract more of the environment than others, uses only the red channel (R), 0 means full refraction, defaults to 1. The final refraction level is basically ```Refraction * Refraction mask```
 
-- **Fresnel** : Those settings allow you to customise the fresnel effect (or "rim light" if you prefer), it can be usefull to add a glow, or to make the outer edge more transparent
+- **Fresnel** : Those settings allow you to customise the fresnel effect (or "rim light" if you prefer), it can be useful to add a glow effect, or to make the outer edge more transparent
 
 - **Fallback cubemap** : The shader relies on the environemnt reflection (reflection probe) to work properly. If there's none, you can set your own cubemap in that field, accepts only textures imported as "Cube"
 
