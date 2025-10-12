@@ -8,7 +8,7 @@ The shader works on VRChat and can be used on PC avatars also.
 ## Settings
 
 - **Main texture** : The color of the glass. If no texture is set, the color defaults to white.
-You can also use that texture to make certain parts of the mesh darker or less transparent, but if you want to have an even color througough the mesh, you can just play around with the ```Color inner``` and ```Color outer``` settings
+You can also use that texture to make certain parts of the mesh darker or less transparent, but if you want to have an even color throughout the mesh, you can just play around with the ```Color inner``` and ```Color outer``` settings
 
 - **Main texture intensity** : Basically how much of the ```Main texture``` you want, so 0 removes the main texture
 
@@ -25,7 +25,7 @@ Those properties support HDR values, but for regular glass you want to keep the 
 
 - **Normal** : Normal map, tiling and offset can be set next to the texture
 
-- **Occulsion** : AO, only the green channel (G) is used, defaults to 1
+- **Occlusion** : AO, only the green channel (G) is used, defaults to 1
 
 - **Blur** : How much you want the glass to blur the environment
 
