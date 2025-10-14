@@ -82,7 +82,7 @@ If nothing is checked, then LTCGI will only refract through the mesh without chr
 
 > [!CAUTION]
 > If you're using that shader in VRChat, keep the ```LTCGI Chromatic aberration``` setting off, as it has a huge performance impact in worlds that use LTCGI!
-> But, if you're alone in an instance or taking pictures of your avatar, you can turn it on (the effect looks really good), just keep in mind that other players in the instance may experience frame drops.
+> But, if you're alone in an instance or taking pictures of your avatar, you can turn it on (the effect looks really good), just keep in mind that other players in the instance may experience frame drops. (In my case, that setting added ~2ms of GPU frametime, which made me loose about 10fps)
 
 ## For shader devs
 

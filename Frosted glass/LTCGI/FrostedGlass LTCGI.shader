@@ -31,7 +31,7 @@ Shader "MyroP/FrostedGlass LTCGI"
 		_Forcefallback("Force fallback", Range( 0 , 1)) = 0
 		[Toggle(_CHROMATICABERRATION_ON)] _Chromaticaberration("Chromatic aberration", Float) = 0
 		_Chromaticaberrationdispersion("Chromatic aberration dispersion", Range( 0 , 1)) = 0.005
-		[Toggle(_LTCGICHROMATICABERRATIONREADDOC_ON)] _LTCGIChromaticaberrationReaddoc("LTCGI Chromatic aberration (Read doc!)", Float) = 0
+		[Toggle(_LTCGICHROMATICABERRATIONSEETHEDOCUMENTATION_ON)] _LTCGIChromaticaberrationSeethedocumentation("LTCGI Chromatic aberration (See the documentation ! )", Float) = 0
 		[Toggle(_LTCGIONTHESURFACE_ON)] _LTCGIonthesurface("LTCGI on the surface", Float) = 0
 		[Enum(UnityEngine.Rendering.CullMode)]_Culling("Culling", Float) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
@@ -56,7 +56,7 @@ Shader "MyroP/FrostedGlass LTCGI"
 		#pragma shader_feature_local _FRESNEL_ON
 		#pragma shader_feature_local _CHROMATICABERRATION_ON
 		#pragma shader_feature_local _LTCGIONTHESURFACE_ON
-		#pragma shader_feature_local _LTCGICHROMATICABERRATIONREADDOC_ON
+		#pragma shader_feature_local _LTCGICHROMATICABERRATIONSEETHEDOCUMENTATION_ON
 		#define ASE_VERSION 19801
 		#include "UnityCG.cginc"
 		#include "Assets/_pi_/_LTCGI/Shaders/LTCGI.cginc"
@@ -388,7 +388,7 @@ Shader "MyroP/FrostedGlass LTCGI"
 			LTCGI_Contribution(worldPos15_g150, worldNorm15_g150, cameraDir15_g150, roughness15_g150, lightmapUV15_g150, diffuse15_g150, specular15_g150, specularIntensity15_g150);
 			}
 			float3 appendResult353 = (float3(( ( specular15_g151 * specularIntensity15_g151 ) + ( diffuse15_g151 * Diffuse162 ) ).x , ( ( specular15_g149 * specularIntensity15_g149 ) + ( diffuse15_g149 * Diffuse162 ) ).y , ( ( specular15_g150 * specularIntensity15_g150 ) + ( diffuse15_g150 * Diffuse162 ) ).z));
-			#ifdef _LTCGICHROMATICABERRATIONREADDOC_ON
+			#ifdef _LTCGICHROMATICABERRATIONSEETHEDOCUMENTATION_ON
 				float3 staticSwitch326 = appendResult353;
 			#else
 				float3 staticSwitch326 = ( ( specular15_g156 * specularIntensity15_g156 ) + ( diffuse15_g156 * Diffuse162 ) );
@@ -526,7 +526,7 @@ Node;AmplifyShaderEditor.ColorNode;81;112,1472;Inherit;False;Constant;_Black;Bla
 Node;AmplifyShaderEditor.SaturateNode;23;144,1232;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.CommentaryNode;141;-4528,-608;Inherit;False;1124;235;Comment;5;68;31;60;59;114;Normal per face;1,1,1,1;0;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;65;-1760,-800;Inherit;False;NormalFinal;-1;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.StaticSwitch;80;432,1536;Inherit;False;Property;_Fresnel;Fresnel;19;0;Create;True;0;0;0;False;0;False;0;1;1;True;;Toggle;2;Key0;Key1;Create;True;True;All;9;1;FLOAT;0;False;0;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.StaticSwitch;80;432,1536;Inherit;False;Property;_Fresnel;Fresnel;19;0;Create;True;0;0;0;False;0;False;0;1;0;True;;Toggle;2;Key0;Key1;Create;True;True;All;9;1;FLOAT;0;False;0;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;136;-4880,1424;Inherit;False;117;Refraction;1;0;OBJECT;;False;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;68;-4480,-560;Inherit;False;65;NormalFinal;1;0;OBJECT;;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.CommentaryNode;111;-4544,-240;Inherit;False;817.8008;369.3071;Comment;4;109;108;107;110;Blur;1,1,1,1;0;0
@@ -632,8 +632,8 @@ Node;AmplifyShaderEditor.RegisterLocalVarNode;67;-2048,1008;Inherit;False;FakeTr
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;303;272,-3520;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.GetLocalVarNode;70;-304,80;Inherit;False;67;FakeTransparency;1;0;OBJECT;;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SamplerNode;34;-416,432;Inherit;True;Property;_Occlusion;Occlusion;14;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
-Node;AmplifyShaderEditor.StaticSwitch;326;816,-2768;Inherit;False;Property;_LTCGIChromaticaberrationReaddoc;LTCGI Chromatic aberration (Read doc!);27;0;Create;True;0;0;0;False;0;False;0;0;0;True;;Toggle;2;Key0;Key1;Create;True;True;All;9;1;FLOAT3;0,0,0;False;0;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT3;0,0,0;False;5;FLOAT3;0,0,0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.StaticSwitch;357;688,-3504;Inherit;False;Property;_LTCGIonthesurface;LTCGI on the surface;28;0;Create;True;0;0;0;False;0;False;0;0;0;True;;Toggle;2;Key0;Key1;Create;True;True;All;9;1;FLOAT3;0,0,0;False;0;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT3;0,0,0;False;5;FLOAT3;0,0,0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.StaticSwitch;326;816,-2768;Inherit;False;Property;_LTCGIChromaticaberrationSeethedocumentation;LTCGI Chromatic aberration (See the documentation ! );27;0;Create;True;0;0;0;False;0;False;0;0;0;True;;Toggle;2;Key0;Key1;Create;True;True;All;9;1;FLOAT3;0,0,0;False;0;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT3;0,0,0;False;5;FLOAT3;0,0,0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;308;1408,-3168;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SamplerNode;35;-416,224;Inherit;True;Property;_Emission;Emission;4;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;black;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;14;-32,-48;Inherit;False;3;3;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;1;FLOAT3;0
@@ -785,9 +785,9 @@ WireConnection;353;2;352;2
 WireConnection;67;0;101;0
 WireConnection;303;0;161;0
 WireConnection;303;1;160;0
+WireConnection;357;0;303;0
 WireConnection;326;1;307;0
 WireConnection;326;0;353;0
-WireConnection;357;0;303;0
 WireConnection;308;0;357;0
 WireConnection;308;1;326;0
 WireConnection;14;0;162;0
@@ -808,4 +808,4 @@ WireConnection;0;3;76;0
 WireConnection;0;4;47;0
 WireConnection;0;5;34;2
 ASEEND*/
-//CHKSM=A1E7CD1057A0A785064C2A318D883B12F9BAB07B
+//CHKSM=636AB130296034C038FF6C9D5939E24E17A4947C
