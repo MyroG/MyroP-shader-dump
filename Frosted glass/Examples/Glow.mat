@@ -76,6 +76,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Occlusion:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -102,15 +110,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Blur: 0.77
+    - _Blur: 0.381
     - _BlurInner: 2.47
     - _BlurOuter: 1.3
     - _BumpScale: 1
+    - _Chromaticaberration: 0
+    - _Chromaticaberrationdispersion: 0.005
     - _Culling: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Float0: 0.5
+    - _Forcefallback: 0
     - _Fresnel: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -119,6 +130,8 @@ Material:
     - _Maintextureintensity: 1
     - _Metallic: 0
     - _Mode: 0
+    - _Normal1Intensity: 1
+    - _Normal2Intensity: 1
     - _NormalIntensity: 1
     - _OcclusionStrength: 1
     - _Overallintensity: 1
@@ -141,4 +154,10 @@ Material:
     - _Colorinner: {r: 0, g: 0.54164034, b: 0.7490196, a: 1}
     - _Colorouter: {r: 0, g: 22.87036, b: 31.626797, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Normal1Panningspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Normal2Panningspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Normaloffset: {r: 0, g: 0, b: 0, a: 0}
+    - _Normalpanningspeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Normaltiling: {r: 1, g: 1, b: 0, a: 0}
+    - _UVPanningspeed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
