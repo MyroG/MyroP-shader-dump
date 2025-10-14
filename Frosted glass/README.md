@@ -1,6 +1,6 @@
 # Simple frosted glass shader
 
-![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/Frosted%20glass/_DocImages/Thumbnail.png)
+![Showcase](https://github.com/MyroG/MyroP-shader-dump/blob/master/Frosted%20glass/_DocImages/Header.png)
 
 A simple frosted glass shader for the Built-in render pipeline, entirely made with the Amplify Shader Editor.
 
