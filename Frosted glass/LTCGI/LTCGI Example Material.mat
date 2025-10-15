@@ -124,6 +124,7 @@ Material:
     - _GlossyReflections: 1
     - _LTCGI: 1
     - _LTCGIChromaticaberrationReaddoc: 0
+    - _LTCGIChromaticaberrationSeethedocumentation: 0
     - _LTCGIonthesurface: 0
     - _MainTextureintensity: 1
     - _MapIsRoughness: 0
